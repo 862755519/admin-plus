@@ -9,15 +9,14 @@ vue3+vite4+pinia+view UI Plus集成后台管理系统
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  npm install
+2.  npm run dev
+3.  npm run build:prod
 
 #### 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  node > 16
+2.  确保你熟悉vue3、vite、pinia
 
 #### 参与贡献
 
