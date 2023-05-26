@@ -65,9 +65,6 @@ const permissionStore = usePermissionStore();
 // 路由实例化
 const route = useRoute();
 const router = useRouter();
-//打开的菜单
-const openNames = ref(null);
-
 //激活的菜单
 const activeMenu = computed(() => {
   const { meta, path } = route;
@@ -75,6 +72,15 @@ const activeMenu = computed(() => {
     return meta.activeMenu;
   }
   return path;
+});
+// 展开的菜单
+const openNames = computed(() => {
+  let openNameArray = [];
+  const matched = route.matched.filter((item) => item.meta && item.meta.title);
+  matched.forEach((v, i) => {
+    openNameArray.push(v.path);
+  });
+  return openNameArray;
 });
 // 菜单手风琴
 const menuAccordion = computed(() => {
@@ -96,15 +102,6 @@ const isCollapsed = computed(() => {
 const sidebarRoutes = computed(() => {
   return permissionStore.sidebarRoutes;
 });
-//初始化打开的菜单names
-const initOpenNames = () => {
-  const matched = route.matched.filter((item) => item.meta && item.meta.title);
-  let openNameArray = [];
-  matched.forEach((v, i) => {
-    openNameArray.push(v.path);
-  });
-  openNames.value = openNameArray;
-};
 //更新菜单组件的状态
 const handleUpdateMenuState = () => {
   nextTick(() => {
@@ -119,7 +116,6 @@ const handleUpdateMenuState = () => {
 watch(
   () => router.currentRoute.value,
   () => {
-    initOpenNames();
     handleUpdateMenuState();
   },
   { immediate: true, deep: true }

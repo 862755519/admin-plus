@@ -1,5 +1,19 @@
-# Object file
-*.o
+# Build and Release Folders
+bin-debug/
+bin-release/
+node_modules/
+[Oo]bj/
+[Bb]in/
 
-# Ada Library Information
-*.ali
+# Other files and folders
+.settings/
+
+# Executables
+*.swf
+*.air
+*.ipa
+*.apk
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.

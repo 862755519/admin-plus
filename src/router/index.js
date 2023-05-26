@@ -92,6 +92,31 @@ export const constantRoutes = [
       }
     ]
   },
+  //页面缓存
+  {
+    path: "/cache",
+    name: "cache",
+    component: Layout,
+    redirect: "noRedirect",
+    meta: {
+      title: "页面缓存",
+      icon: "ios-locate"
+    },
+    children: [
+      {
+        path: "cachePage",
+        name: "cachePage",
+        component: () => import("@/views/cache/cachePage.vue"),
+        meta: { title: "有缓存的页面", subtitle: "", affix: false, icon: "", noCache: false }
+      },
+      {
+        path: "noCachePage",
+        name: "noCachePage",
+        component: () => import("@/views/cache/noCachePage.vue"),
+        meta: { title: "无缓存的页面", subtitle: "", affix: false, icon: "", noCache: true }
+      }
+    ]
+  },
 
   //系统管理
   {

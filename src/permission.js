@@ -8,7 +8,7 @@ import usePermissionStore from "@/store/modules/permission";
 import { getToken } from "@/utils/auth"; // get token from cookie
 
 // 引入异步路由菜单数据
-import { asyncRoutes } from "./router/async-routes";
+// import { asyncRoutes } from "./router/async-routes";
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
@@ -36,6 +36,7 @@ router.beforeEach(async (to, from, next) => {
             if (permissionStore.addRoutes.length > 0) {
                 next();
             } else {
+                let asyncRoutes = [];
                 // 权限路由
                 const accessRoutes = await permissionStore.generateRoutes(asyncRoutes)
                 // 追加个404页面，防止随意输入地址找不到

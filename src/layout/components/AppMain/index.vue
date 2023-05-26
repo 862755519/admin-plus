@@ -6,17 +6,20 @@
 -->
 <template>
   <section class="app-main" :style="paddingStyle">
-    <router-view :key="key" v-slot="{ Component }">
+    <router-view :key="key" v-slot="{ Component, route }">
       <transition name="fade-transform" mode="out-in">
         <keep-alive :include="cachedViews">
-          <component :is="Component" />
+          <component
+            v-if="!route.meta.link"
+            :is="Component"
+            :key="route.path"
+          />
         </keep-alive>
       </transition>
     </router-view>
   </section>
 </template>
-  
-  <script setup>
+<script setup>
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import useTabsViewStore from "@/store/modules/tabsView";
@@ -29,6 +32,8 @@ const route = useRoute();
 const cachedViews = computed(() => {
   return tabsViewStore.cachedViews;
 });
+console.log("缓存的页面");
+console.log(cachedViews.value);
 //显示标签页
 const tabsView = computed(() => {
   return settingsStore.tabsView;
