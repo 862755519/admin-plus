@@ -243,8 +243,8 @@ const closeOther = () => {
  * 关闭所有tab
  */
 const closeAll = () => {
-  tabsViewStore.delAllViews(({ visitedViews }) => {
-    if (affixTabs.some((tag) => tag.path === route.path)) {
+  tabsViewStore.delAllViews().then(({ visitedViews }) => {
+    if (affixTabs.value.some((tag) => tag.path === route.path)) {
       return;
     }
     toNextView(visitedViews);
