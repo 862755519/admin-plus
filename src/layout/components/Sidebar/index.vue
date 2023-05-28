@@ -12,7 +12,7 @@
     </transition>
     <!-- menu -->
     <Menu
-      ref="menu"
+      ref="menuElement"
       :theme="sideTheme"
       class="i-layout-menu-side i-scrollbar-hide i-layout-menu-roll"
       :class="{
@@ -50,7 +50,7 @@
 </template>
 
 <script setup>
-import { ref, computed, watch, nextTick, toRef } from "vue";
+import { ref, computed, watch, nextTick } from "vue";
 import SideMenuLogo from "./SideMenuLogo.vue";
 import SideMenuItem from "./SideMenuItem.vue";
 import SideMenuCollapse from "./SideMenuCollapse.vue";
@@ -65,6 +65,10 @@ const permissionStore = usePermissionStore();
 // 路由实例化
 const route = useRoute();
 const router = useRouter();
+//展开的菜单
+const openNames = ref([]);
+//菜单节点
+const menuElement = ref(null);
 //激活的菜单
 const activeMenu = computed(() => {
   const { meta, path } = route;
@@ -72,15 +76,6 @@ const activeMenu = computed(() => {
     return meta.activeMenu;
   }
   return path;
-});
-// 展开的菜单
-const openNames = computed(() => {
-  let openNameArray = [];
-  const matched = route.matched.filter((item) => item.meta && item.meta.title);
-  matched.forEach((v, i) => {
-    openNameArray.push(v.path);
-  });
-  return openNameArray;
 });
 // 菜单手风琴
 const menuAccordion = computed(() => {
@@ -102,13 +97,21 @@ const isCollapsed = computed(() => {
 const sidebarRoutes = computed(() => {
   return permissionStore.sidebarRoutes;
 });
+//初始化打开菜单
+const initOpenNames = () => {
+  const matched = route.matched.filter((item) => item.meta && item.meta.title);
+  let openNameArray = [];
+  matched.forEach((v, i) => {
+    openNameArray.push(v.path);
+  });
+  openNames.value = openNameArray;
+};
 //更新菜单组件的状态
 const handleUpdateMenuState = () => {
   nextTick(() => {
-    const menu = ref(null);
-    if (menu.value) {
-      menu.value.updateActiveName();
-      menu.value.updateOpened();
+    if (menuElement.value) {
+      menuElement.value.updateActiveName();
+      menuElement.value.updateOpened();
     }
   });
 };
@@ -116,6 +119,7 @@ const handleUpdateMenuState = () => {
 watch(
   () => router.currentRoute.value,
   () => {
+    initOpenNames();
     handleUpdateMenuState();
   },
   { immediate: true, deep: true }
@@ -124,6 +128,7 @@ watch(
 watch(
   () => isCollapsed,
   () => {
+    initOpenNames();
     handleUpdateMenuState();
   }
 );

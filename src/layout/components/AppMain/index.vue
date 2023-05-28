@@ -32,8 +32,6 @@ const route = useRoute();
 const cachedViews = computed(() => {
   return tabsViewStore.cachedViews;
 });
-console.log("缓存的页面");
-console.log(cachedViews.value);
 //显示标签页
 const tabsView = computed(() => {
   return settingsStore.tabsView;
