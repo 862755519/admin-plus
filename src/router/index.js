@@ -144,16 +144,16 @@ export const constantRoutes = [
     ]
   },
   //跳转外部链接
-  {
-    path: "/goBing",
-    name: "linkBiying",
-    meta: { title: "当前窗口打开", icon: "ivu-icon-md-share", url:"https://cn.bing.com" }
-  },
-  {
-    path: "/goBaidu",
-    name: "linkBaidu",
-    meta: { title: "打开新窗口", icon: "ivu-icon-md-link",url:"https://baidu.com.com", target: "_blank" }
-  }
+  // {
+  //   path: "/goBing",
+  //   name: "linkBiying",
+  //   meta: { title: "当前窗口打开", icon: "ivu-icon-md-share", url:"https://cn.bing.com" }
+  // },
+  // {
+  //   path: "/goBaidu",
+  //   name: "linkBaidu",
+  //   meta: { title: "打开新窗口", icon: "ivu-icon-md-link",url:"https://baidu.com.com", target: "_blank" }
+  // }
 ];
 
 //创建路由实例

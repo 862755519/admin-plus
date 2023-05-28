@@ -56,7 +56,7 @@ const paddingStyle = computed(() => {
   overflow: hidden;
   box-sizing: border-box;
   padding: 10px;
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 240px);
   height: auto;
 }
 </style>

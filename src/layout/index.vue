@@ -25,6 +25,7 @@
       </Header>
       <Content class="i-layout-content" :class="contentClasses">
         <AppMain />
+        <Footer />
       </Content>
     </Layout>
 
@@ -47,7 +48,13 @@ import { useWindowSize } from "@vueuse/core";
 import { computed, watch, watchEffect } from "vue";
 import defaultSettings from "@/settings.js";
 import { useRouter } from "vue-router";
-import { Sidebar, Navbar, TabsView, AppMain } from "./components/index.js";
+import {
+  Sidebar,
+  Navbar,
+  TabsView,
+  AppMain,
+  Footer,
+} from "./components/index.js";
 import useAppStore from "@/store/modules/app";
 import useSettingsStore from "@/store/modules/settings";
 // 实例化路由
