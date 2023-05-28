@@ -39,7 +39,7 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            v-model="fixedHeader"
+            v-model="settingsStore.fixedHeader"
             @on-change="(val) => handleChangeSetting('fixedHeader', val)"
           />
         </span>
@@ -49,7 +49,7 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            v-model="fixedSidebar"
+            v-model="settingsStore.fixedSidebar"
             @on-change="(val) => handleChangeSetting('fixedSidebar', val)"
           />
         </span>
@@ -59,7 +59,7 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            v-model="sidebarLogo"
+            v-model="settingsStore.sidebarLogo"
             @on-change="(val) => handleChangeSetting('sidebarLogo', val)"
           />
         </span>
@@ -78,7 +78,7 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            v-model="menuAccordion"
+            v-model="settingsStore.menuAccordion"
             @on-change="(val) => handleChangeSetting('menuAccordion', val)"
           />
         </span>
@@ -90,7 +90,7 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            v-model="menuCollapseParentTitle"
+            v-model="settingsStore.menuCollapseParentTitle"
             @on-change="
               (val) => handleChangeSetting('menuCollapseParentTitle', val)
             "
@@ -104,7 +104,7 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            v-model="tabsView"
+            v-model="settingsStore.tabsView"
             @on-change="(val) => handleChangeSetting('tabsView', val)"
           />
         </span>
@@ -119,8 +119,8 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            v-model="tabsViewIcon"
-            :disabled="!tabsView"
+            v-model="settingsStore.tabsViewIcon"
+            :disabled="!settingsStore.tabsView"
             @on-change="(val) => handleChangeSetting('tabsViewIcon', val)"
           />
         </span>
@@ -133,7 +133,7 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            v-model="showDynamicTitle"
+            v-model="settingsStore.showDynamicTitle"
             @on-change="(val) => handleChangeSetting('showDynamicTitle', val)"
           />
         </span>
@@ -145,7 +145,7 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            v-model="rootHome"
+            v-model="settingsStore.rootHome"
             @on-change="(val) => handleChangeSetting('rootHome', val)"
           />
         </span>
@@ -173,42 +173,6 @@ const showSettings = ref(false);
 //菜单主题
 const sideTheme = computed(() => {
   return settingsStore.sideTheme;
-});
-//固定头部
-const fixedHeader = computed(() => {
-  return settingsStore.fixedHeader;
-});
-//固定菜单
-const fixedSidebar = computed(() => {
-  return settingsStore.fixedSidebar;
-});
-//显示logo
-const sidebarLogo = computed(() => {
-  return settingsStore.sidebarLogo;
-});
-//菜单手风琴
-const menuAccordion = computed(() => {
-  return settingsStore.menuAccordion;
-});
-//菜单折叠时，是否在子菜单显示父级菜单名称
-const menuCollapseParentTitle = computed(() => {
-  return settingsStore.menuCollapseParentTitle;
-});
-//显示标签页
-const tabsView = computed(() => {
-  return settingsStore.tabsView;
-});
-//显示标签页图标
-const tabsViewIcon = computed(() => {
-  return settingsStore.tabsViewIcon;
-});
-//面包屑第一层是否显示首页，否则会以当前点击的菜单根目录显示在第一层
-const rootHome = computed(() => {
-  return settingsStore.rootHome;
-});
-//动态标题
-const showDynamicTitle = computed(() => {
-  return settingsStore.showDynamicTitle;
 });
 // 改变设置
 const handleChangeSetting = (key, value) => {

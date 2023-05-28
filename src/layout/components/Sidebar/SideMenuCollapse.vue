@@ -31,13 +31,14 @@
         />
       </side-menu-link>
     </Tooltip>
+
     <!-- children包含多个元素，继续遍历子元素 -->
     <Dropdown v-else placement="right-start">
       <!-- 左侧收缩后一级菜单展示的图标 -->
       <li
         class="ivu-menu-item"
         :class="{
-          'i-layout-menu-side-collapse-top-level-item': this.topLevel,
+          'i-layout-menu-side-collapse-top-level-item': topLevel,
           'i-layout-menu-side-collapse-top-level-item-selected':
             openNames.includes(resolvePath(item.path)),
         }"
@@ -112,7 +113,7 @@
 import { computed, ref } from "vue";
 import path from "path-browserify";
 import { isExternal } from "@/utils/validate";
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import SideMenuTitle from "./SideMenuTitle.vue";
 import SideMenuLink from "./SideMenuLink.vue";
 import useSettingsStore from "@/store/modules/settings";
@@ -125,6 +126,7 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  //是否是第一级，区分在于左侧固定和弹出菜单
   topLevel: {
     type: Boolean,
     default: false,
@@ -133,13 +135,37 @@ const props = defineProps({
 const route = useRoute();
 const settingsStore = useSettingsStore();
 const onlyOneChild = ref(null);
+//主题
+const sideTheme = computed(() => {
+  return settingsStore.sideTheme;
+});
+//菜单折叠时，是否在子菜单显示父级菜单名称
+const menuCollapseParentTitle = computed(() => {
+  return settingsStore.menuCollapseParentTitle;
+});
+//激活的菜单
+const activeMenu = computed(() => {
+  const { meta, path } = route;
+  if (meta.activeMenu) {
+    return meta.activeMenu;
+  }
+  return path;
+});
+//展开的菜单
+const openNames = computed(() => {
+  const matched = route.matched.filter((item) => item.meta && item.meta.title);
+  let openNames = [];
+  matched.forEach((v, i) => {
+    openNames.push(v.path);
+  });
+  return openNames;
+});
 //children中包含一个满足条件展示的子元素
 const hasOneShowingChild = (children = [], parent) => {
   if (!children) {
     children = [];
   }
   // 获取children中非hidden的集合
-  // debugger
   const showingChildren = children.filter((item) => !item.hidden);
   // 如果集合且只有一个元素则赋值给onlyOneChild
   if (showingChildren.length === 1) {
@@ -166,29 +192,6 @@ const resolvePath = (routePath, rootPath) => {
   basePath = basePath.replace(routePath, "");
   return path.resolve(basePath, routePath);
 };
-//菜单主题
-const sideTheme = computed(() => {
-  return settingsStore.sideTheme;
-});
-//展开菜单设置
-const menuCollapseParentTitle = computed(() => {
-  return settingsStore.menuCollapseParentTitle;
-});
-//激活的菜单
-const activeMenu = computed(() => {
-  const { meta, path } = route;
-  if (meta.activeMenu) {
-    return meta.activeMenu;
-  }
-  return path;
-});
-//展开的菜单
-const openNames = computed(() => {
-  const matched = route.matched.filter((item) => item.meta && item.meta.title);
-  let openNames = [];
-  matched.forEach((v, i) => {
-    openNames.push(v.path);
-  });
-  return openNames;
-});
-</script> 
+</script>
+
+
