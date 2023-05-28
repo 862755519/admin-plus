@@ -14,7 +14,7 @@
     <Menu
       ref="menuElement"
       :theme="sideTheme"
-      class="i-layout-menu-side i-scrollbar-hide i-layout-menu-roll"
+      class="i-layout-menu-side i-scrollbar-hide"
       :class="{
         'i-layout-menu-side-collapse': isCollapsed,
         'i-layout-menu-side-has-logo': hasLogo,

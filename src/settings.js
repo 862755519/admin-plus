@@ -18,7 +18,7 @@ export default {
     // 是否固定顶栏
     fixedHeader: true,
     // 是否固定左侧栏
-    fixedSidebar: false,
+    fixedSidebar: true,
     // 是否显示左侧栏顶部的logo
     sidebarLogo: true,
     // 侧边菜单栏是否开启手风琴模式，开启后每次打开菜单只能打开一个

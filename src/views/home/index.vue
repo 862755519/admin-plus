@@ -5,7 +5,7 @@
   时间：2023年04月29日 11:37:05
 -->
 <template>
-  <div>
+  <div style="height: 1200px;">
     我是home页面
     <Button>Default</Button>
     <Button type="primary">Primary</Button>

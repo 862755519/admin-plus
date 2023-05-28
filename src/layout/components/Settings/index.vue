@@ -49,7 +49,6 @@
         <span class="i-layout-navbar-settings-item-action">
           <Switch
             size="small"
-            disabled
             v-model="fixedSidebar"
             @on-change="(val) => handleChangeSetting('fixedSidebar', val)"
           />
