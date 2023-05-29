@@ -20,20 +20,19 @@ const props = defineProps({
     default: "",
   },
 });
-// 是否外部连接
+//是否外部连接
 const isExternalLink = computed(() => {
   return isExternal(props.to);
 });
-// 跳转类型
+//跳转类型
 const type = computed(() => {
-  if (isExternalLink) {
+  if (isExternalLink.value) {
     return "a";
   }
   return "router-link";
 });
-//动态绑定链接属性
 const linkProps = (to) => {
-  if (isExternal) {
+  if (isExternalLink.value) {
     return {
       href: to,
       target: "_blank",
@@ -44,7 +43,4 @@ const linkProps = (to) => {
     to: to,
   };
 };
-</script> 
-
-<style scoped lang="less">
-</style>
+</script>
