@@ -6,6 +6,7 @@
 -->
 <template>
 <div>
+    <PageTitle title="基础列表" subTitle="标准的列表，包含增删改查等基础操作。"></PageTitle>
     我是菜单权限页面
 </div>
 </template>

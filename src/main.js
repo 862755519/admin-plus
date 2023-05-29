@@ -13,6 +13,8 @@ import "@/styles/index.less";
 
 import "./permission";
 
+//注册全局组件
+import PageTitle from '@/components/PageTitle/index.vue'
 
 const app = createApp(App)
 
@@ -20,4 +22,5 @@ app.use(router)
 app.use(store)
 app.use(ViewUIPlus)
 app.component("SvgIcon",SvgIcon)
+app.component("PageTitle",PageTitle)
 app.mount('#app')

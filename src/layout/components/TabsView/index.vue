@@ -319,6 +319,7 @@ onMounted(() => {
     background-color: #ffffff;
     color: #808695;
     border-radius: 3px;
+    cursor: pointer;
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.08);
   }
   &-main {

@@ -143,6 +143,36 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: "/list",
+    name: "list",
+    component: Layout,
+    redirect: "noRedirect",
+    meta: {
+      title: "列表页面",
+      icon: "md-reorder"
+    },
+    children: [
+      {
+        path: "base",
+        name: "base",
+        component: () => import("@/views/list/base/index.vue"),
+        meta: { title: "基础列表", subtitle: "", affix: false, icon: "" }
+      },
+      {
+        path: "card",
+        name: "card",
+        component: () => import("@/views/list/card/index.vue"),
+        meta: { title: "卡片列表", subtitle: "", affix: false, icon: "" }
+      },
+      {
+        path: "table",
+        name: "table",
+        component: () => import("@/views/list/table/index.vue"),
+        meta: { title: "表格列表", subtitle: "", affix: false, icon: "" }
+      }
+    ]
+  },
   //跳转外部链接
   // {
   //   path: "/goBing",
