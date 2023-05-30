@@ -51,13 +51,13 @@ const getBreadcrumb = () => {
   if (!isHome(first)) {
     // 设置里显示根首页，会拼加到第一个
     if (rootHome.value) {
-      matched = [{ path: "/home/index", meta: { title: "首页" } }].concat(
+      matched = [{ path: "/workSpace/control", meta: { title: "主控台" } }].concat(
         matched
       );
     }
   } else {
     // 如果当前路由是首页，则面包屑只保留一个首页链接
-    matched = [{ path: "/home/index", meta: { title: "首页" } }];
+    matched = [{ path: "/workSpace/control", meta: { title: "主控台" } }];
   }
   // 匹配出来的路由链接列表
   levelList.value = matched.filter(

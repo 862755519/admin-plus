@@ -8,10 +8,10 @@ const useBadgesStore = defineStore(
     state: () => ({
       // 左侧菜单显示的徽标
       sidebarBadges: [
-        {
-          path: "/home/index",
-          count: 8
-        }
+        // {
+        //   path: "/workSpace/control",
+        //   count: 8
+        // }
         // {
         //   path: "/components-demo",
         //   text: "新特性",

@@ -320,7 +320,7 @@ onMounted(() => {
     color: #808695;
     border-radius: 3px;
     cursor: pointer;
-    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.08);
+    box-shadow: 0px 0px 10px 0px rgba(0, 21, 41, 0.04);
   }
   &-main {
     background: #f5f7f9;
@@ -348,7 +348,7 @@ onMounted(() => {
     color: #808695;
     border-radius: 3px;
     padding: 0px 12px 0px 10px;
-    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.08);
+    box-shadow: 0px 0px 10px 0px rgba(0, 21, 41, 0.04);
     margin-right: 6px;
     flex-shrink: 0;
     cursor: pointer;

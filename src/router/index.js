@@ -64,7 +64,7 @@ export const constantRoutes = [
   // 默认路由跳转到首页
   {
     path: "",
-    redirect: "/home/index",
+    redirect: "/workSpace/control",
     component: Layout
   },
   //找不到页面跳转404
@@ -73,22 +73,34 @@ export const constantRoutes = [
     redirect: "/404",
     hidden: true
   },
-  // 首页
+  // 工作空间
   {
-    path: "/home",
-    name: "home",
+    path: "/workSpace",
+    name: "workSpace",
     component: Layout,
-    redirect: "/home/index",
+    redirect: "noRedirect",
     meta: {
-      title: "首页",
+      title: "工作空间",
       icon: "md-home"
     },
     children: [
       {
-        path: "index",
-        name: "index",
-        component: () => import("@/views/home/index.vue"),
-        meta: { title: "首页", subtitle: "Dashboard", affix: true, icon: "md-home" }
+        path: "control",
+        name: "control",
+        component: () => import("@/views/workSpace/control/index.vue"),
+        meta: { title: "主控台", subtitle: "", affix: true, icon: "" }
+      },
+      {
+        path: "analyse",
+        name: "analyse",
+        component: () => import("@/views/workSpace/analyse/index.vue"),
+        meta: { title: "分析页", subtitle: "", affix: false, icon: "" }
+      },
+      {
+        path: "workbench",
+        name: "workbench",
+        component: () => import("@/views/workSpace/workbench/index.vue"),
+        meta: { title: "工作台", subtitle: "", affix: false, icon: "" }
       }
     ]
   },
