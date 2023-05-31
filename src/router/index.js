@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import Layout from '@/Layout/index.vue';
 export const constantRoutes = [
   /**
@@ -200,8 +200,8 @@ export const constantRoutes = [
 
 //创建路由实例
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: constantRoutes
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  routes: constantRoutes 
 })
 
 export default router
