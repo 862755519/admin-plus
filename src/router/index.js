@@ -63,14 +63,14 @@ export const constantRoutes = [
 
   // 默认路由跳转到首页
   {
-    path: "",
+    path: "/",
     redirect: "/workSpace/control",
     component: Layout
   },
   //找不到页面跳转404
   {
     path: "/:pathMatch(.*)*",
-    redirect: "/404",
+    redirect: "/login",
     hidden: true
   },
   // 工作空间
