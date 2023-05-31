@@ -1,0 +1,1 @@
+import{g as t,c as o,l as a,m as n,o as c}from"./index-1835f226.js";const i={__name:"index",setup(l){return console.log("我我是菜单权限页面"),(s,r)=>{const e=t("PageTitle");return c(),o("div",null,[a(e,{title:"基础列表",subTitle:"标准的列表，包含增删改查等基础操作。"}),n(" 我是菜单权限页面 ")])}}};export{i as default};

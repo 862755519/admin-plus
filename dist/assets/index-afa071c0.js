@@ -1,0 +1,1 @@
+import{_ as t,g as o,c as n,l as c,o as s}from"./index-1835f226.js";const a={};function r(l,_){const e=o("PageTitle");return s(),n("div",null,[c(e,{title:"基础列表",subTitle:"标准的列表，包含增删改查等基础操作。"})])}const d=t(a,[["render",r]]);export{d as default};

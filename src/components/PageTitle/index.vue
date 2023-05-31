@@ -29,7 +29,6 @@ const props = defineProps({
   background-color: #fff;
   border-radius: 4px;
   padding: 15px;
-  box-shadow: 2px 0 4px rgba(0, 21, 41, 0.06);
   &-title{
     color: #17233d;
     font-size: 20px;

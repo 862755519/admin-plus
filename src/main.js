@@ -20,7 +20,8 @@ import "./permission";
 //注册全局组件
 import PageTitle from '@/components/PageTitle/index.vue'
 import ColorIcon from '@/components/ColorIcon/index.vue'
-
+import ILink from '@/components/ILink/index.vue'
+ 
 function useTable (app) {
     app.use(VXETable)
 }
@@ -34,5 +35,6 @@ app.use(useTable)
 app.component("SvgIcon",SvgIcon)
 app.component("PageTitle",PageTitle)
 app.component("ColorIcon",ColorIcon)
+app.component("ILink",ILink)
 app.mount('#app')
 
