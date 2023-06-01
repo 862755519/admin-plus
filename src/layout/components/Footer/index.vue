@@ -14,7 +14,7 @@
       <a href="#">GitHub</a>
     </div>
     <div class="i-layout-footer-copy">
-      Copyright © {{ new Date().getFullYear() }} 腾讯科技有限公司
+      Copyright © {{ new Date().getFullYear() }}  Admin Plus 开源社区
     </div>
   </div>
 </template>

@@ -70,7 +70,7 @@ export const constantRoutes = [
   //找不到页面跳转404
   {
     path: "/:pathMatch(.*)*",
-    redirect: "/login",
+    redirect: "/404",
     hidden: true
   },
   // 工作空间
