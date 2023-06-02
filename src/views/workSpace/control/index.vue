@@ -90,6 +90,7 @@
         <div class="page-card">
           <div class="page-card-title">
             <div>用户量</div>
+            <Tag color="purple">年</Tag>
           </div>
           <div class="page-card-content">
             <div class="num-box">

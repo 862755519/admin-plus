@@ -24,8 +24,8 @@ const useUserStore = defineStore(
                         const { code, data } = res;
                         if (code == 200) {
                             // set token
-                            this.token = data;
-                            setToken(data);
+                            this.token = data.token;
+                            setToken(data.token);
                         }
                         resolve(res);
                     }).catch(err => {

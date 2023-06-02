@@ -16,7 +16,7 @@
         style="margin-top: 20px; text-align: left"
       >
         登录失败！
-        <template #desc> 系统登录失败请重新登录 </template>
+        <template #desc> 账号或密码错误，请重新登录！ </template>
       </Alert>
       <Form
         ref="loginRef"
@@ -146,7 +146,8 @@ const handleLogin = () => {
       userStore
         .login(loginForm)
         .then((res) => {
-          if (res.code == 200) {
+          const {code,message} = res;
+          if (code == 200) {
             Message.success("登录成功正在跳转");
             setTimeout(() => {
               loginLoading.value = false;
@@ -154,7 +155,7 @@ const handleLogin = () => {
               router.push({ path: redirect.value || "/" });
             }, 300);
           } else {
-            Message.error("登录失败");
+            Message.error( message || "登录失败");
             alertState.value = true;
           }
         })

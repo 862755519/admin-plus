@@ -7,9 +7,6 @@ import useSettingsStore from "@/store/modules/settings";
 import usePermissionStore from "@/store/modules/permission";
 import { getToken } from "@/utils/auth"; // get token from cookie
 
-// 引入异步路由菜单数据
-// import { asyncRoutes } from "./router/async-routes";
-
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
 const settingsStore = useSettingsStore(pinia);
