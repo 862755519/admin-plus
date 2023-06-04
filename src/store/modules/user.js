@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { login, logout, getUserInfo } from '@/api/modules/login'
+import { login, logout, getUserInfo,getUserAuthority } from '@/api/modules/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 
 const useUserStore = defineStore(
@@ -7,11 +7,16 @@ const useUserStore = defineStore(
     {
         state: () => ({
             token: getToken(),
-            name: '',
-            avatar: '',
-            roles: [],
-            permissions: [],
+            userInfo: null, //用户信息
+            roles: [], //角色信息
+            menuList: [],//菜单列表
+            permissions: [], //按钮权限
         }),
+        persist: {
+            storage: localStorage,
+            paths: ['userInfo', 'roles','menuList', 'permissions'],
+            debug: true
+        },
         actions: {
             // 登录
             login(userInfo) {
@@ -20,12 +25,16 @@ const useUserStore = defineStore(
                     login({
                         username: username.trim(),
                         password
-                    }).then(res => {
+                    }).then(async res => {
                         const { code, data } = res;
                         if (code == 200) {
                             // set token
                             this.token = data.token;
                             setToken(data.token);
+                            // 获取个人信息
+                            await this.getUserInfo();
+                            // 获取路由权限信息
+                            await this.getUserAuthority();
                         }
                         resolve(res);
                     }).catch(err => {
@@ -39,18 +48,27 @@ const useUserStore = defineStore(
                     getUserInfo().then(res => {
                         const { code, data } = res;
                         if (code == 200) {
-                            // set name
-                            this.name = data.username;
-                            sessionStorage.setItem("name", data.username);
-                            // set avatar
-                            this.avatar = data.avatar;
-                            sessionStorage.setItem("avatar", data.avatar);
+                            // set userInfo
+                            this.userInfo = data;
+                        }
+                        resolve(res)
+                    }).catch(err => {
+                        reject(err)
+                    })
+                })
+            },
+            //获取用户权限信息
+            getUserAuthority() {
+                return new Promise((resolve, reject) => {
+                    getUserAuthority().then(res => {
+                        const { code, data } = res;
+                        if (code == 200) {
                             // set roles
                             this.roles = data.roles;
-                            sessionStorage.setItem("roles", data.roles);
-                            // set roles
+                            // set permissions
                             this.permissions = data.permissions;
-                            sessionStorage.setItem("permissions", data.permissions);
+                            // set menuList
+                            this.menuList = data.menuList;
                         }
                         resolve(res)
                     }).catch(err => {

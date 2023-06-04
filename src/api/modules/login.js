@@ -9,18 +9,23 @@ export function login(data) {
   });
 }
 //获取用户信息
-export function getUserInfo(params) {
+export function getUserInfo() {
   return request({
     url: "/getUserInfo",
-    method: "post",
-    params
+    method: "post"
+  });
+}
+//获取用户权限信息
+export function getUserAuthority() {
+  return request({
+    url: "/getUserAuthority",
+    method: "post"
   });
 }
 //退出登录
-export function logout(params) {
+export function logout() {
   return request({
     url: "/logout",
-    method: "post",
-    params
+    method: "post"
   });
 }

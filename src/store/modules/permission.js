@@ -1,5 +1,18 @@
 import { defineStore } from 'pinia'
 import { constantRoutes } from "@/router";
+import Layout from '@/Layout/index.vue';
+const modules = import.meta.glob('./../../views/**/*.vue')
+//将字符串组件路径转换为vue的组件
+function loadComponent(component) {
+    let res = null;
+    for (const path in modules) {
+        const dir = path.split('views/')[1].split('.vue')[0];
+        if (dir === component) {
+            res = () => modules[path]();
+        }
+    }
+    return res;
+}
 //过滤异步获取的路由菜单数据，组装成vue路由组件
 function filterAsyncRoutes(asyncRoutes) {
     const res = [];
@@ -7,6 +20,13 @@ function filterAsyncRoutes(asyncRoutes) {
         const tmp = { ...route };
         if (tmp.children) {
             tmp.children = filterAsyncRoutes(tmp.children);
+        }
+        if (tmp.component) {
+            if (tmp.component === 'Layout') {
+                tmp.component = Layout
+            } else {
+                tmp.component = loadComponent(tmp.component);
+            }
         }
         res.push(tmp);
     });
@@ -21,8 +41,13 @@ const usePermissionStore = defineStore(
             addRoutes: [], // 获取到的异步路由数据
             sidebarRoutes: [] // 左侧菜单展示的路由数据，当开启topNav时候左侧路由需要过滤
         }),
+        persist: {
+            storage: localStorage,
+            paths: ['routes', 'addRoutes','sidebarRoutes'],
+            debug: true
+        },
         actions: {
-            // 充值路由
+            // 重置路由
             resetRoutes() {
                 this.routes = [];
                 this.addRoutes = [];

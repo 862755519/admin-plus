@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import store from './store'
 import router from './router'
+import store from './store'
 import ViewUIPlus from 'view-ui-plus' //引入ViewUIPlus
 import 'view-ui-plus/dist/styles/viewuiplus.css'
 

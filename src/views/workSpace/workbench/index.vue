@@ -156,7 +156,7 @@
               >
                 <div class="project-item">
                   <div class="project-flex">
-                    <SvgIcon type="project1" size="44"></SvgIcon>
+                    <SvgIcon type="project1" :size="44"></SvgIcon>
                     <div class="project-content">
                       <div class="project-name">{{ item.name }}</div>
                       <div class="project-text">
@@ -199,7 +199,7 @@
               >
                 <div class="project-item">
                   <div class="project-flex">
-                    <SvgIcon type="project2" size="44"></SvgIcon>
+                    <SvgIcon type="project2" :size="44"></SvgIcon>
                     <div class="project-content">
                       <div class="project-name">{{ item.name }}</div>
                       <div class="project-text">
@@ -242,7 +242,7 @@
               >
                 <div class="project-item">
                   <div class="project-flex">
-                    <SvgIcon type="project3" size="44"></SvgIcon>
+                    <SvgIcon type="project3" :size="44"></SvgIcon>
                     <div class="project-content">
                       <div class="project-name">{{ item.name }}</div>
                       <div class="project-text">

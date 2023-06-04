@@ -30,6 +30,7 @@ const useBadgesStore = defineStore(
         // }
       ]
     }),
+    persist: false,
     actions: {
       //设置全部左侧微标
       setAllBadge(data) {

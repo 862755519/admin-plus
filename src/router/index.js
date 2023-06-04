@@ -69,7 +69,7 @@ export const constantRoutes = [
   },
   //找不到页面跳转404
   {
-    path: "/:pathMatch(.*)*",
+    path: "/:catchAll(.*)",
     redirect: "/404",
     hidden: true
   },
@@ -128,76 +128,8 @@ export const constantRoutes = [
         meta: { title: "无缓存的页面", subtitle: "", affix: false, icon: "", noCache: true }
       }
     ]
-  },
-
-  //系统管理
-  {
-    path: "/system",
-    name: "system",
-    component: Layout,
-    redirect: "noRedirect",
-    meta: {
-      title: "系统管理",
-      icon: "logo-buffer"
-    },
-    children: [
-      {
-        path: "menu",
-        name: "menu",
-        component: () => import("@/views/system/menu/index.vue"),
-        meta: { title: "菜单权限管理", subtitle: "", affix: false, icon: "" }
-      },
-      {
-        path: "role",
-        name: "role",
-        component: () => import("@/views/system/role/index.vue"),
-        meta: { title: "角色权限管理", subtitle: "", affix: false, icon: "" }
-      }
-    ]
-  },
-  {
-    path: "/list",
-    name: "list",
-    component: Layout,
-    redirect: "noRedirect",
-    meta: {
-      title: "列表页面",
-      icon: "md-reorder"
-    },
-    children: [
-      {
-        path: "base",
-        name: "base",
-        component: () => import("@/views/list/base/index.vue"),
-        meta: { title: "基础列表", subtitle: "", affix: false, icon: "" }
-      },
-      {
-        path: "card",
-        name: "card",
-        component: () => import("@/views/list/card/index.vue"),
-        meta: { title: "卡片列表", subtitle: "", affix: false, icon: "" }
-      },
-      {
-        path: "table",
-        name: "table",
-        component: () => import("@/views/list/table/index.vue"),
-        meta: { title: "表格列表", subtitle: "", affix: false, icon: "" }
-      }
-    ]
-  },
-  //跳转外部链接
-  // {
-  //   path: "/goBing",
-  //   name: "linkBiying",
-  //   meta: { title: "当前窗口打开", icon: "ivu-icon-md-share", url:"https://cn.bing.com" }
-  // },
-  // {
-  //   path: "/goBaidu",
-  //   name: "linkBaidu",
-  //   meta: { title: "打开新窗口", icon: "ivu-icon-md-link",url:"https://baidu.com.com", target: "_blank" }
-  // }
+  }
 ];
-
 //创建路由实例
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

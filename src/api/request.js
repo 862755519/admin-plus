@@ -16,7 +16,7 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     // 发送请求之前做什么操作
-    // config.headers["Authorization"] = getToken();
+    config.headers["Authorization"] = getToken();
     return config;
   },
   error => {

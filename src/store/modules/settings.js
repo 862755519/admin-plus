@@ -12,10 +12,14 @@ const useSettingsStore = defineStore(
             showDynamicTitle: defaultSettings.showDynamicTitle,
             dynamicTitle: ""
         }),
+        persist: {
+            storage: localStorage,
+            debug: true
+        },
         actions: {
             // 修改布局设置
             changeLayoutSetting(key, value) {
-                if (this.hasOwnProperty(key)) {
+                if (key) {
                     this[key] = value
                 }
             },

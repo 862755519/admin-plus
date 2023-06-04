@@ -13,6 +13,7 @@ const useSettingsStore = defineStore(
             },
             device: "desktop" // 设备类型，桌面：desktop；手机：mobile；平板：tablet
         }),
+        persist: false,
         actions: {
             toggleSideBar() {
                 this.sidebar.opened = !this.sidebar.opened

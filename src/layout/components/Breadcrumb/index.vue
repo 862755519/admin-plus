@@ -73,8 +73,6 @@ const pathCompile = (path) => {
 //跳转
 const handleLink = (item) => {
   const { redirect, path } = item;
-  console.log("我是单价");
-  console.log(item);
   if (redirect) {
     router.push(redirect);
     return;

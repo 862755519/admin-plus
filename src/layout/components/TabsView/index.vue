@@ -201,7 +201,6 @@ const handleTabClick = (name) => {
 //刷新当前路由页面
 const refreshCurrent = () => {
   const { fullPath } = activeRoute.value;
-  console.log("刷新页面");
   tabsViewStore.delCachedView(activeRoute.value).then(() => {
     nextTick(() => {
       router.replace({
@@ -263,10 +262,8 @@ const arrowBack = () => {
   }
   if (offsetLeft > 240) {
     //移动距离大于父盒子宽度，向前移动一整个父盒子宽度
-    console.log(111);
     tabScroll.value = -(offsetLeft - 240) + "px";
   } else {
-    console.log(222);
     tabScroll.value = "0px"; // 否则移动到开始位置
   }
 };
