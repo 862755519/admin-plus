@@ -1,21 +1,22 @@
-import pinia from '@/store'
 import router from './router'
 import NProgress from "nprogress"; // progress bar
 import "nprogress/nprogress.css"; // progress bar style
 import defaultSettings from "@/settings.js";
+import useUserStore from "@/store/modules/user";
 import useSettingsStore from "@/store/modules/settings";
 import usePermissionStore from "@/store/modules/permission";
 import { getToken } from "@/utils/auth"; // get token from cookie
 
 NProgress.configure({ showSpinner: false }); // NProgress Configuration
 
-const settingsStore = useSettingsStore(pinia);
-const permissionStore = usePermissionStore(pinia);
-
 const whiteList = ["/login"]; // 路由白名单
 
 // 路由前置守卫
 router.beforeEach(async (to, from, next) => {
+    //实例化仓库
+    const userStore = useUserStore();
+    const settingsStore = useSettingsStore();
+    const permissionStore = usePermissionStore();
     // start progress bar
     NProgress.start();
     // 设置页面标题（如果开启了动态标题则会拼加路由的title）
@@ -34,10 +35,11 @@ router.beforeEach(async (to, from, next) => {
                 next();
             } else {
                 let asyncRoutes = [];
+                if (userStore.menuList) {
+                    asyncRoutes = userStore.menuList
+                }
                 // 权限路由
                 const accessRoutes = await permissionStore.generateRoutes(asyncRoutes)
-                // 追加个404页面，防止随意输入地址找不到
-                accessRoutes.push({ path: "/:pathMatch(.*)*", redirect: "/405", hidden: true });
                 // 根据roles权限生成可访问的路由表
                 accessRoutes.forEach(route => {
                     router.addRoute(route) // 动态添加可访问路由表

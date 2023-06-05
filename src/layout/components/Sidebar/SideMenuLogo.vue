@@ -33,7 +33,7 @@
 <script setup>
 import { ref, computed } from "vue";
 import defaultSettings from "@/settings";
-import logo from "@/assets/images/logo1.png";
+import logo from "@/assets/images/logo.png";
 import useAppStore from "@/store/modules/app";
 import useSettingsStore from "@/store/modules/settings";
 //仓库实例化
@@ -76,8 +76,8 @@ const logoClasses = computed(() => {
     align-items: center;
     justify-content: center;
     .sider-logo-img {
-      max-width: 40px;
-      max-height: 40px;
+      width: 34px;
+      height: 32px;
       vertical-align: middle;
       margin-right: 10px !important;
     }
@@ -94,7 +94,7 @@ const logoClasses = computed(() => {
 
   &-collapse {
     .sider-logo-img {
-      margin-right: 0px;
+      margin-right: 0px !important;
     }
   }
 

@@ -41,11 +41,7 @@ const usePermissionStore = defineStore(
             addRoutes: [], // 获取到的异步路由数据
             sidebarRoutes: [] // 左侧菜单展示的路由数据，当开启topNav时候左侧路由需要过滤
         }),
-        persist: {
-            storage: localStorage,
-            paths: ['routes', 'addRoutes','sidebarRoutes'],
-            debug: true
-        },
+        persist: false,
         actions: {
             // 重置路由
             resetRoutes() {

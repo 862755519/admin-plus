@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia'
-import { login, logout, getUserInfo,getUserAuthority } from '@/api/modules/login'
+import { login, logout, getUserInfo, getUserAuthority } from '@/api/modules/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
-
 const useUserStore = defineStore(
     'user',
     {
@@ -14,7 +13,7 @@ const useUserStore = defineStore(
         }),
         persist: {
             storage: localStorage,
-            paths: ['userInfo', 'roles','menuList', 'permissions'],
+            paths: ['userInfo', 'roles', 'menuList', 'permissions'],
             debug: true
         },
         actions: {
@@ -83,17 +82,22 @@ const useUserStore = defineStore(
                         const { code } = res;
                         if (code == 200) {
                             this.token = ''
+                            this.userInfo = null
                             this.roles = []
+                            this.menuList = []
                             this.permissions = []
+                            //清除token
                             removeToken()
                             sessionStorage.clear();
+                            localStorage.clear();
                         }
                         resolve(res)
                     }).catch(error => {
                         reject(error)
                     })
                 })
-            }
+            },
+
         }
     })
 

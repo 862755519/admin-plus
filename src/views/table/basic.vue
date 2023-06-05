@@ -6,7 +6,7 @@
 -->
 <template>
 <div>
-    基础列表
+    基础列表666
 </div>
 </template>
 
