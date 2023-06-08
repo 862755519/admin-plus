@@ -21,7 +21,7 @@
 ### 🌈 项目概述
 
 * 基于vue3、vite4、pinia2、view UI Plus 集成的后台管理系统前端框架，开箱即用。
-* 实现了动态路由，路由守卫，以及相关的业务组件。
+* 实现了动态路由，路由守卫，按钮权限，数据权限，以及相关的业务组件。
 * 一个高颜值的、轻量级的、易扩展的后台管理系统！
 
 
@@ -32,6 +32,9 @@
 ### 🍚 功能概览
 
 - [x] 动态路由: 实现动态获取路由及权限管理。
+- [x] 按钮权限: 实现根据不同角色获取不同的按钮权限。
+- [x] 数据权限: 同一接口，后台根据不同角色返回不同的数据列表。
+- [x] 数据表格: 导入高扩展性，高封装性的表格插件vxe-table，可实现更多复杂功能的数据表格。
 - [x] 主题切换: 系统个性化主题、布局、护眼模式、暗黑模式。
 - [x] 全局组件: 实现复用性高的，易扩展的全局组件。
 - [x] 动态表单: 动态生成form表单，可配置的、易扩展的（开发中）。
@@ -176,13 +179,15 @@ npm run build:prod
 
 [View UI Plus](https://www.iviewui.com/)
 
+[Vxe-table](https://vxetable.cn/#/table/start/install)
+
 ### 🍎 预览界面
 
 | 预览                 |                界面 |
 |---------------------|---------------------|
 | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show1.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show2.png "屏幕截图.png")  |
 | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show3.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show4.png "屏幕截图.png")   |
-| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show5.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show6.png "屏幕截图.png")  |
+| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show5.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show6.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show7.png "屏幕截图.png") | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show8.png "屏幕截图.png") | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show9.png "屏幕截图.png") | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show10.png "屏幕截图.png") | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show11.png "屏幕截图.png")
 
 ### 💐 特别鸣谢
 
@@ -190,13 +195,14 @@ npm run build:prod
 - 👉 Vite —— 下一代前端开发与构建工具
 - 👉 Pinia —— 新一代轻量级的vue状态管理库
 - 👉 View UI Plus —— 一个漂亮的、组件丰富的、扩展性强的前端UI组件库。
+- 👉 Vxe-table —— 高扩展性、高封装性、高性能的前端表格组件。
 - 👉 若依 —— 一套全部开源的、优秀的快速开发平台，毫无保留给个人及企业免费使用。
 
 ### 🍻 贡献代码
 
 <p style="padding:10px;"  width="90%">
 
-1. 欢迎提交 [pull request](https://gitee.com/myProject-template/admin-plus.git)，注意对应提交对应 `develop` 分支
+1. 欢迎提交 [pull request](https://gitee.com/myProject-template/admin-plus.git)，注意对应提交对应 `master` 分支
 
 2. 欢迎提交 [issue](https://gitee.com/myProject-template/admin-plus/issues)，请写清楚遇到问题的原因、开发环境、复显步骤。
 
