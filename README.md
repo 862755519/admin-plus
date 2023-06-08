@@ -190,7 +190,7 @@ npm run build:prod
 | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show5.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show6.png "屏幕截图.png")  |
 | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show7.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show8.png "屏幕截图.png")  |
 | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show9.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show10.png "屏幕截图.png")  |
-| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show11.png "屏幕截图.png")
+| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show11.png "屏幕截图.png") | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show12.png "屏幕截图.png")
 
 ### 💐 特别鸣谢
 
