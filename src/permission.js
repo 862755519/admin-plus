@@ -24,7 +24,7 @@ router.beforeEach(async (to, from, next) => {
     document.title = `${settingsStore.dynamicTitle} - ${defaultSettings.title}`;
     // 获取登录的token
     const hasToken = getToken();
-    if (hasToken) {
+    if (hasToken && userStore.menuList  && userStore.menuList.length > 0 ) {
         if (to.path === "/login") {
             // 如果已经登录，地址栏输入login，则默认跳转到首页
             next({ path: "/" });
