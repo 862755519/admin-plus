@@ -1,0 +1,1 @@
+import{s as e}from"./index-04e543a6.js";function r(t){return e({url:"/getCompanyList",method:"post",data:t})}function o(t){return e({url:"/getDepartmentList",method:"post",data:t})}function n(t){return e({url:"/getDutyList",method:"post",data:t})}function i(t){return e({url:"/getUserList",method:"post",data:t})}export{o as a,n as b,i as c,r as g};

@@ -72,7 +72,7 @@ export const constantRoutes = [
   //找不到页面跳转404
   {
     path: "/:pathMatch(.*)*",
-    component: () => import('@/views/error/404'),
+    component: () => import('@/views/error/404.vue'),
     meta: {
       title: "404",
     },
