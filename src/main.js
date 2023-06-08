@@ -17,8 +17,12 @@ import "@/styles/index.less";
 
 import "./permission";
 
+// 引入全局指令
+import * as directives from '@/directives/index.js'
+
 //注册全局组件
 import PageTitle from '@/components/PageTitle/index.vue'
+import PageTable from '@/components/PageTable/index.vue'
 import ColorIcon from '@/components/ColorIcon/index.vue'
 import ILink from '@/components/ILink/index.vue'
  
@@ -34,7 +38,14 @@ app.use(ViewUIPlus)
 app.use(useTable)
 app.component("SvgIcon",SvgIcon)
 app.component("PageTitle",PageTitle)
+app.component("PageTable",PageTable)
 app.component("ColorIcon",ColorIcon)
 app.component("ILink",ILink)
 app.mount('#app')
+
+//注册自定义指令
+Object.keys(directives).forEach(key => {  //Object.keys() 返回一个数组，值是所有可遍历属性的key名
+  app.directive(key, (directives)[key])  //key是自定义指令名字；后面应该是自定义指令的值，值类型是string
+})
+
 

@@ -10,7 +10,7 @@ export const constantRoutes = [
  *                                  // 若你想不管路由下面的 children 声明的个数都显示你的根路由
  *                                  // 你可以设置 alwaysShow: true，这样它就会忽略之前定义的规则，一直显示根路由
  * redirect: noRedirect             // 当设置 noRedirect 的时候该路由在面包屑导航中不可被点击
- * name:'router-name'               // 设定路由的名字，一定要填写不然使用<keep-alive>时会出现各种问题
+ * name:'router-name'               // 设定路由的名字，一定要填写不然使用<keep-alive>时会出现各种问题，注意每个路由的name不能相同
  * query: '{"id": 1, "name": "ry"}' // 访问路由的默认传递参数
  * roles: ['admin', 'common']       // 访问路由的角色权限
  * permissions: ['a:a:a', 'b:b:b']  // 访问路由的菜单权限
@@ -77,62 +77,6 @@ export const constantRoutes = [
       title: "404",
     },
     hidden: true
-  },
-  // 工作空间
-  {
-    path: "/workSpace",
-    name: "workSpace",
-    component: Layout,
-    redirect: "noRedirect",
-    meta: {
-      title: "工作空间",
-      icon: "md-home"
-    },
-    children: [
-      {
-        path: "control",
-        name: "control",
-        component: () => import("@/views/workSpace/control/index.vue"),
-        meta: { title: "主控台", subtitle: "", affix: true, icon: "" }
-      },
-      {
-        path: "analyse",
-        name: "analyse",
-        component: () => import("@/views/workSpace/analyse/index.vue"),
-        meta: { title: "分析页", subtitle: "", affix: false, icon: "" }
-      },
-      {
-        path: "workbench",
-        name: "workbench",
-        component: () => import("@/views/workSpace/workbench/index.vue"),
-        meta: { title: "工作台", subtitle: "", affix: false, icon: "" }
-      }
-    ]
-  },
-  //页面缓存
-  {
-    path: "/cache",
-    name: "cache",
-    component: Layout,
-    redirect: "noRedirect",
-    meta: {
-      title: "页面缓存",
-      icon: "ios-locate"
-    },
-    children: [
-      {
-        path: "cachePage",
-        name: "cachePage",
-        component: () => import("@/views/cache/cachePage.vue"),
-        meta: { title: "有缓存的页面", subtitle: "", affix: false, icon: "", noCache: false }
-      },
-      {
-        path: "noCachePage",
-        name: "noCachePage",
-        component: () => import("@/views/cache/noCachePage.vue"),
-        meta: { title: "无缓存的页面", subtitle: "", affix: false, icon: "", noCache: true }
-      }
-    ]
   }
 ];
 //创建路由实例
