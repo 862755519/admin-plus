@@ -186,8 +186,11 @@ npm run build:prod
 | 预览                 |                界面 |
 |---------------------|---------------------|
 | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show1.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show2.png "屏幕截图.png")  |
-| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show3.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show4.png "屏幕截图.png")   |
-| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show5.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show6.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show7.png "屏幕截图.png") | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show8.png "屏幕截图.png") | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show9.png "屏幕截图.png") | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show10.png "屏幕截图.png") | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show11.png "屏幕截图.png")
+| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show3.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show4.png "屏幕截图.png")  |
+| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show5.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show6.png "屏幕截图.png")  |
+| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show7.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show8.png "屏幕截图.png")  |
+| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show9.png "屏幕截图.png")  | ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show10.png "屏幕截图.png")  |
+| ![输入图片说明](https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show11.png "屏幕截图.png")
 
 ### 💐 特别鸣谢
 
