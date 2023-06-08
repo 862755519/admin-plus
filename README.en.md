@@ -10,7 +10,7 @@
      开 箱 即 用 的 企 业 级 开 发 平 台 前 端 框 架
   </h4> 
 
-  [文档](https://gitee.com/myProject-template/admin-plus/blob/master/README.md) 
+  [预览](http://myproject-template.gitee.io/admin-plus)   
 
 </div>
 
@@ -18,7 +18,11 @@
   <img  width="92%" style="border-radius:10px;margin-top:20px;margin-bottom:20px;box-shadow: 2px 0 6px gray;" src="https://mxd-admin.oss-cn-chengdu.aliyuncs.com/preview/show2.png" />
 </div>
 
-### 🌈 项目概述
+### 🍃 开发文档
+
+ [查看文档](https://gitee.com/myProject-template/admin-plus/blob/master/README.md)
+
+### 🌈 项目概述 
 
 * 基于vue3、vite4、pinia2、view UI Plus 集成的后台管理系统前端框架，开箱即用。
 * 实现了动态路由，路由守卫，按钮权限，数据权限，以及相关的业务组件。
