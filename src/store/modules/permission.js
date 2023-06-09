@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { constantRoutes } from "@/router";
 import Layout from '@/Layout/index.vue';
+import ParentView from '@/components/ParentView/index.vue'
 const modules = import.meta.glob('./../../views/**/*.vue')
 //将字符串组件路径转换为vue的组件
 function loadComponent(component) {
@@ -24,6 +25,8 @@ function filterAsyncRoutes(asyncRoutes) {
         if (tmp.component) {
             if (tmp.component === 'Layout') {
                 tmp.component = Layout
+            } else if (tmp.component === 'ParentView') {
+                tmp.component = ParentView
             } else {
                 tmp.component = loadComponent(tmp.component);
             }
