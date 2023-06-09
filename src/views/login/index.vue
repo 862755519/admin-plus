@@ -194,7 +194,7 @@ onBeforeUnmount(() => {
 
   .login-card {
     width: 500px;
-    padding: 50px 30px;
+    padding: 40px 30px 30px 30px;
     background-color: #fff;
     box-shadow: 0 0px 10px 0px rgba(30, 30, 30, 0.1);
     border-radius: 10px;
