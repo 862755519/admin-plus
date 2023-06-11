@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { login, logout, getUserInfo, getUserAuthority } from '@/api/modules/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
+import usePermissionStore from "@/store/modules/permission";
 const useUserStore = defineStore(
     'user',
     {
@@ -90,6 +91,9 @@ const useUserStore = defineStore(
                             removeToken()
                             sessionStorage.clear();
                             localStorage.clear();
+                            //清除路由
+                            const permissionStore = usePermissionStore();
+                            permissionStore.resetRoutes();
                         }
                         resolve(res)
                     }).catch(error => {
@@ -97,7 +101,6 @@ const useUserStore = defineStore(
                     })
                 })
             },
-
         }
     })
 
