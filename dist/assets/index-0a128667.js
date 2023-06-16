@@ -1,0 +1,1 @@
+import{_ as t,n,o,c,l as s}from"./index-6a54087f.js";const a={};function r(l,_){const e=n("PageTitle");return o(),c("div",null,[s(e,{title:"基础列表",subTitle:"标准的列表，包含增删改查等基础操作。"})])}const d=t(a,[["render",r]]);export{d as default};
