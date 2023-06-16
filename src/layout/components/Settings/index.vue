@@ -99,6 +99,18 @@
       </div>
       <div class="i-layout-navbar-settings-item">
         <span class="i-layout-navbar-settings-item-desc"
+          >开启水印</span
+        >
+        <span class="i-layout-navbar-settings-item-action">
+          <Switch
+            size="small"
+            v-model="settingsStore.isWater"
+            @on-change="(val) => handleChangeSetting('isWater', val)"
+          />
+        </span>
+      </div>
+      <div class="i-layout-navbar-settings-item">
+        <span class="i-layout-navbar-settings-item-desc"
           >开启Tabs View标签页</span
         >
         <span class="i-layout-navbar-settings-item-action">

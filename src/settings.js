@@ -25,6 +25,8 @@ export default {
     menuAccordion: true,
     // 菜单折叠时，是否在子菜单显示父级菜单名称
     menuCollapseParentTitle: false,
+    // 是否开启水印
+    isWater: false,
     // 是否开启 tabsView
     tabsView: true,
     // tabsView标签显示图标

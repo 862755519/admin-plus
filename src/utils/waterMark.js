@@ -36,7 +36,7 @@ export default class waterMarkClass {
         div.style.top = "0px";
         div.style.left = "0px";
         div.style.position = "absolute";
-        div.style.zIndex = "100000";
+        div.style.zIndex = "9";
         const el = unref(this.domElement);
         if (!el) return this.id;
         const { clientHeight: height, clientWidth: width } = el;

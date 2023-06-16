@@ -6,7 +6,7 @@
 -->
 <template>
   <section ref="appMainWaterMark" class="app-main" :style="paddingStyle">
-    <router-view :key="key" v-slot="{ Component, route }">
+    <router-view v-slot="{ Component, route }">
       <transition name="fade-transform" mode="out-in">
         <keep-alive :include="cachedViews">
           <component

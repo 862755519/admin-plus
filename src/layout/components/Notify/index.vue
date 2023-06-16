@@ -6,7 +6,7 @@
 -->
 <template>
   <div id="i-layout-navbar-notify" class="i-layout-navbar-notify">
-    <Dropdown trigger="click">
+    <Dropdown trigger="click" >
       <Badge dot :offset="[16, 0]">
         <Icon class="i-icon" type="md-notifications-outline" />
       </Badge>
@@ -239,6 +239,7 @@ const noticeList = ref([
   .i-notify-content {
     height: 300px;
     overflow-y: scroll;
+    background-color: #fff;
   }
   .msg-box {
     line-height: normal !important;
