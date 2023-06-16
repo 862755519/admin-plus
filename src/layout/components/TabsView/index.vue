@@ -27,14 +27,14 @@
           v-for="(item, index) in visitedViews"
           :key="item.path + index"
         >
+        <router-link :to="{ path: item.path, query: item.query, fullPath: item.fullPath }">
           <Icon
             v-if="tabsViewIcon && item.meta.icon"
             :type="item.meta.icon"
             size="14"
-            @click="handleTabClick(item.fullPath)"
             style="margin-right: 4px"
           />
-          <span @click="handleTabClick(item.fullPath)">{{ item.title }}</span>
+          <span>{{ item.title }}</span>
           <Icon
             type="md-close"
             size="14"
@@ -42,6 +42,7 @@
             @click="handleTabRemove(item.fullPath)"
             style="margin-left: 6px; color: #999"
           />
+        </router-link>
         </div>
       </div>
     </div>

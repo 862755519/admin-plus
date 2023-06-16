@@ -61,6 +61,7 @@ const paddingStyle = computed(() => {
   }
 });
 onMounted(() => {
+  if(!settingsStore.isWater) return;
   nextTick(() => {
     waterMark.setWaterMark(appMainWaterMark.value, "Admin Plus");
   });
@@ -69,6 +70,7 @@ onBeforeUpdate(() => {
   waterMark.clearWatermark();
 });
 onUpdated(() => {
+  if(!settingsStore.isWater) return;
   nextTick(() => {
     waterMark.setWaterMark(appMainWaterMark.value, "Admin Plus");
   });
