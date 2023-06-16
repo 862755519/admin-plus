@@ -6,7 +6,7 @@
 -->
 <template>
 <div>
-    我是角色权限页面
+    角色权限页面
 </div>
 </template>
 
