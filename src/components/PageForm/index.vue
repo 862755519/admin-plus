@@ -1,21 +1,105 @@
 <!--
-  功能：功能描述
+  功能：配置表单
   作者：Maoxiangdong
   邮箱：862755519@qq.com
-  时间：2023年06月09日 09:57:46
+  时间：2023年06月19日 15:45:02
 -->
 <template>
   <div>
-    <div>我是一级菜单level-1</div>
-    <PageForm></PageForm>
+    6666
+    <!-- <Form
+      ref="formValidate"
+      :model="formValidate"
+      :rules="ruleValidate"
+      :label-width="80"
+    >
+      <FormItem label="Name" prop="name">
+        <Input
+          v-model="formValidate.name"
+          placeholder="Enter your name"
+        ></Input>
+      </FormItem>
+      <FormItem label="E-mail" prop="mail">
+        <Input
+          v-model="formValidate.mail"
+          placeholder="Enter your e-mail"
+        ></Input>
+      </FormItem>
+      <FormItem label="City" prop="city">
+        <Select v-model="formValidate.city" placeholder="Select your city">
+          <Option value="beijing">New York</Option>
+          <Option value="shanghai">London</Option>
+          <Option value="shenzhen">Sydney</Option>
+        </Select>
+      </FormItem>
+      <FormItem label="Date">
+        <Row>
+          <Col span="11">
+            <FormItem prop="date">
+              <DatePicker
+                type="date"
+                placeholder="Select date"
+                v-model="formValidate.date"
+              ></DatePicker>
+            </FormItem>
+          </Col>
+          <Col span="2" style="text-align: center">-</Col>
+          <Col span="11">
+            <FormItem prop="time">
+              <TimePicker
+                type="time"
+                placeholder="Select time"
+                v-model="formValidate.time"
+              ></TimePicker>
+            </FormItem>
+          </Col>
+        </Row>
+      </FormItem>
+      <FormItem label="Gender" prop="gender">
+        <RadioGroup v-model="formValidate.gender">
+          <Radio label="male">Male</Radio>
+          <Radio label="female">Female</Radio>
+        </RadioGroup>
+      </FormItem>
+      <FormItem label="Hobby" prop="interest">
+        <CheckboxGroup v-model="formValidate.interest">
+          <Checkbox label="Eat"></Checkbox>
+          <Checkbox label="Sleep"></Checkbox>
+          <Checkbox label="Run"></Checkbox>
+          <Checkbox label="Movie"></Checkbox>
+        </CheckboxGroup>
+      </FormItem>
+      <FormItem label="Desc" prop="desc">
+        <Input
+          v-model="formValidate.desc"
+          type="textarea"
+          :autosize="{ minRows: 2, maxRows: 5 }"
+          placeholder="Enter something..."
+        ></Input>
+      </FormItem>
+      <FormItem>
+        <Button type="primary" @click="handleSubmit('formValidate')"
+          >Submit</Button
+        >
+        <Button @click="handleReset('formValidate')" style="margin-left: 8px"
+          >Reset</Button
+        >
+      </FormItem>
+    </Form> -->
   </div>
 </template>
 
 <script setup>
-import {reactive} from "vue"
-import PageForm from "@/components/PageForm/index.vue";
+import { reactive, ref, watch  } from "vue";
+const props = defineProps({
+  pageFormConfig: {
+    type: Object,
+    required: true,
+    default: () => {}
+  }
+});
 // 表单配置项
-const formConfig = reactive({
+const pageFormConfig = reactive({
   //表单域标签的宽度，所有的 FormItem 都会继承 Form 组件的 label-width 的值
   labelWidth: 80,
   //表单域标签的位置，可选值为 left、right、top
@@ -28,184 +112,6 @@ const formConfig = reactive({
   rules: {},
   //表单项配置
   formItem: [
-    //姓名
-    {
-      //对应表单域 model 里的字段
-      prop: "name",
-      //标签文本
-      label: "姓名",
-      //文本域key值
-      value: "name",
-      //是否必填
-      required: true,
-      //表单组件配置
-      element: {
-        // 表单模块 input
-        mode: "input",
-        // 输入框类型，可选值为 text、password、textarea、url、email、date、number、tel
-        type: "text",
-        // 输入框尺寸，可选值为large、small、default或者不设置
-        size: "default",
-        //占位文本
-        placeholder: "请输入内容",
-        //是否显示清空按钮
-        clearable: false,
-        //是否禁用
-        disabled: false,
-        //是否只读
-        readonly: false,
-        //最大输入限制
-        maxlength: null,
-        //文本域默认行数，仅在 textarea 类型下有效
-        rows: 4,
-        //将用户的输入转换为 Number 类型
-        number: false,
-        //原生自动完成
-        autocomplete: false,
-      },
-    },
-    // 邮箱
-    {
-      //对应表单域 model 里的字段
-      prop: "email",
-      //标签文本
-      label: "邮箱",
-      //文本域key值
-      value: "email",
-      //是否必填
-      required: true,
-      //表单组件配置
-      element: {
-        // 表单模块 input
-        mode: "input",
-        // 输入框类型，可选值为 text、password、textarea、url、email、date、number、tel
-        type: "email",
-        // 输入框尺寸，可选值为large、small、default或者不设置
-        size: "default",
-        //占位文本
-        placeholder: "请输入内容",
-        //是否显示清空按钮
-        clearable: false,
-        //是否禁用
-        disabled: false,
-        //是否只读
-        readonly: false,
-        //最大输入限制
-        maxlength: null,
-        //文本域默认行数，仅在 textarea 类型下有效
-        rows: 4,
-        //将用户的输入转换为 Number 类型
-        number: false,
-        //原生自动完成
-        autocomplete: false,
-      },
-    },
-    // 性别
-    {
-       //对应表单域 model 里的字段
-       prop: "",
-      //标签文本
-      label: "",
-      //文本域key值
-      value: "",
-      //表单域标签的的宽度
-      labelWidth: "",
-      //是否必填
-      required: "",
-      //表单组件配置
-      element: {
-        //单选框组 radioGroup
-          mode: "radioGroup",
-          // 单选框组尺寸，可选值为large、small、default或者不设置
-          size: "default",
-          // 选择项
-          options: [
-            {
-              //只在组合使用时有效。指定当前选项的 value 值，组合会自动判断当前选择的项目
-              label: "男",
-              //key值
-              value: "1",
-              // 是否禁用
-              disabled: false,
-              // 边框
-              border: false,
-            },
-            {
-              //只在组合使用时有效。指定当前选项的 value 值，组合会自动判断当前选择的项目
-              label: "女",
-              //key值
-              value: "2",
-              // 是否禁用
-              disabled: false,
-              // 边框
-              border: false,
-            }
-          ]
-      }
-    },
-    //兴趣爱好
-    {
-       //对应表单域 model 里的字段
-       prop: "",
-      //标签文本
-      label: "",
-      //文本域key值
-      value: "",
-      //表单域标签的的宽度
-      labelWidth: "",
-      //是否必填
-      required: "",
-      //表单组件配置
-      element: {
-        //单选框组 radioGroup
-          mode: "checkboxGroup",
-          // 单选框组尺寸，可选值为large、small、default或者不设置
-          size: "default",
-          // 选择项
-          options: [
-            {
-              //只在组合使用时有效。指定当前选项的 value 值，组合会自动判断当前选择的项目
-              label: "打篮球",
-              //key值
-              value: "1",
-              // 是否禁用
-              disabled: false,
-              // 边框
-              border: false,
-            },
-            {
-              //只在组合使用时有效。指定当前选项的 value 值，组合会自动判断当前选择的项目
-              label: "看书",
-              //key值
-              value: "2",
-              // 是否禁用
-              disabled: false,
-              // 边框
-              border: false,
-            },
-            {
-              //只在组合使用时有效。指定当前选项的 value 值，组合会自动判断当前选择的项目
-              label: "滑雪",
-              //key值
-              value: "3",
-              // 是否禁用
-              disabled: false,
-              // 边框
-              border: false,
-            },
-            {
-              //只在组合使用时有效。指定当前选项的 value 值，组合会自动判断当前选择的项目
-              label: "唱歌",
-              //key值
-              value: "4",
-              // 是否禁用
-              disabled: false,
-              // 边框
-              border: false,
-            }
-          ]
-      }
-    },
     {
       //对应表单域 model 里的字段
       prop: "",
@@ -381,6 +287,20 @@ const formConfig = reactive({
     },
   ],
 });
+//表单对象
+const formData = ref({
+  
+})
+//监听数据变化
+watch(
+  () => pageFormConfig,
+  (newvalue, oldvalue) => {
+    console.log("person.city newvalue", newvalue, "oldvalue", oldvalue);
+  },{
+    deep: true
+  }
+);
+
 </script> 
 
 <style scoped lang="less">
