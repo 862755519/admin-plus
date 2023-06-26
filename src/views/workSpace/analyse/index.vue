@@ -138,7 +138,7 @@ const countList = ref([
   padding: 15px;
   .user-num {
     padding: 15px;
-    background-image: linear-gradient(to top, #2db7f5 0%, #2d8cf0 100%);
+    background-image: linear-gradient(to top, #2db7f5 0%, #1e71ff 100%);
     border-radius: 6px;
   }
   .user-num-name {
@@ -166,7 +166,7 @@ const countList = ref([
       font-size: 14px;
     }
     .goods-num {
-      color: #2d8cf0;
+      color: #1e71ff;
       font-size: 24px;
     }
   }

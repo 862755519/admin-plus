@@ -360,9 +360,9 @@ onMounted(() => {
     }
   }
   .i-layout-tabs-item-active {
-    color: #2d8cf0;
+    color: #1e71ff;
     &:hover {
-      color: #2d8cf0;
+      color: #1e71ff;
     }
   }
 }

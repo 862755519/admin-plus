@@ -54,7 +54,7 @@
           width="80"
         >
           <template #default="{ row }">
-            <span v-if="row.alwaysShow" style="color: #2d8cf0">是</span>
+            <span v-if="row.alwaysShow" style="color: #1e71ff">是</span>
             <span v-else style="color: #ed4014">否</span>
           </template>
         </vxe-column>
@@ -75,7 +75,7 @@
           align="center"
         >
           <template #default="{ row }">
-            <span v-if="row.meta.noCache" style="color: #2d8cf0">是</span>
+            <span v-if="row.meta.noCache" style="color: #1e71ff">是</span>
             <span v-else style="color: #ed4014">否</span>
           </template>
         </vxe-column>
@@ -86,7 +86,7 @@
           align="center"
         >
           <template #default="{ row }">
-            <span v-if="row.meta.breadcrumb" style="color: #2d8cf0">是</span>
+            <span v-if="row.meta.breadcrumb" style="color: #1e71ff">是</span>
             <span v-else style="color: #ed4014">否</span>
           </template>
         </vxe-column>
@@ -97,7 +97,7 @@
           align="center"
         >
           <template #default="{ row }">
-            <span v-if="row.meta.activeMenu" style="color: #2d8cf0">是</span>
+            <span v-if="row.meta.activeMenu" style="color: #1e71ff">是</span>
             <span v-else style="color: #ed4014">否</span>
           </template>
         </vxe-column>
@@ -108,7 +108,7 @@
           align="center"
         >
           <template #default="{ row }">
-            <span v-if="row.meta.affix" style="color: #2d8cf0">是</span>
+            <span v-if="row.meta.affix" style="color: #1e71ff">是</span>
             <span v-else style="color: #ed4014">否</span>
           </template>
         </vxe-column>
