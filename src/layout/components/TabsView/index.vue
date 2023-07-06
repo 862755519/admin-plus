@@ -27,14 +27,21 @@
           v-for="(item, index) in visitedViews"
           :key="item.path + index"
         >
-        <router-link :to="{ path: item.path, query: item.query, fullPath: item.fullPath }">
-          <Icon
-            v-if="tabsViewIcon && item.meta.icon"
-            :type="item.meta.icon"
-            size="14"
-            style="margin-right: 4px"
-          />
-          <span>{{ item.title }}</span>
+          <router-link
+            :to="{
+              path: item.path,
+              query: item.query,
+              fullPath: item.fullPath,
+            }"
+          >
+            <Icon
+              v-if="tabsViewIcon && item.meta.icon"
+              :type="item.meta.icon"
+              size="14"
+              style="margin-right: 4px"
+            />
+            <span>{{ item.title }}</span>
+          </router-link>
           <Icon
             type="md-close"
             size="14"
@@ -42,7 +49,6 @@
             @click="handleTabRemove(item.fullPath)"
             style="margin-left: 6px; color: #999"
           />
-        </router-link>
         </div>
       </div>
     </div>
@@ -166,6 +172,7 @@ const toNextView = (visitedViews, index = -1) => {
   if (nextView) {
     router.push(nextView.fullPath);
   } else {
+
     // 全部关闭后，如果没有任何标签，则默认跳转到首页
     nextTick(() => {
       router.replace({
@@ -183,7 +190,7 @@ const handleTabRemove = (name) => {
   tabsViewStore.delView(view).then(({ visitedViews }) => {
     //关闭当前路由则跳转前一个路由
     if (isActive(view)) {
-      toNextView(visitedViews, viewIndex);
+      toNextView(visitedViews, viewIndex-1);
     }
   });
 };
@@ -360,9 +367,9 @@ onMounted(() => {
     }
   }
   .i-layout-tabs-item-active {
-    color: #2d8cf0;
+    color: #1e71ff;
     &:hover {
-      color: #2d8cf0;
+      color: #1e71ff;
     }
   }
 }

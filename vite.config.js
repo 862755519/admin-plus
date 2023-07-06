@@ -15,11 +15,6 @@ export default defineConfig({
       symbolId: 'svg-icon-[name]',
     })
   ],
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-    }
-  },
   // 代理服务
   server: {
     port: 80,
@@ -33,10 +28,16 @@ export default defineConfig({
       }
     }
   },
+  resolve: {
+    alias: [
+      { find: /^@\//, replacement: `${path.resolve(__dirname, 'src')}/` },
+      { find: /^~/, replacement: '' }
+    ],
+    extensions: ['.js', '.mjs', '.vue', '.json', '.less', '.css']
+  },
   css: {
-    loaderOptions: {
+    preprocessorOptions: {
       less: {
-        modifyVars: {},
         javascriptEnabled: true
       }
     }

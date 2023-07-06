@@ -76,8 +76,8 @@ const logoClasses = computed(() => {
     align-items: center;
     justify-content: center;
     .sider-logo-img {
-      width: 34px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       vertical-align: middle;
       margin-right: 10px !important;
     }
