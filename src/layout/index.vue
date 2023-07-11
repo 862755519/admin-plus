@@ -217,7 +217,7 @@ watch(
     padding: 0px;
     height: auto;
     line-height: 0;
-    background: #f5f7f9;
+    background: #f5f5f5;
     z-index: 9;
     transition: all 0.2s ease-in-out;
     &-fix {

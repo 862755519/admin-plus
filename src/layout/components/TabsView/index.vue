@@ -172,7 +172,6 @@ const toNextView = (visitedViews, index = -1) => {
   if (nextView) {
     router.push(nextView.fullPath);
   } else {
-
     // 全部关闭后，如果没有任何标签，则默认跳转到首页
     nextTick(() => {
       router.replace({
@@ -190,7 +189,7 @@ const handleTabRemove = (name) => {
   tabsViewStore.delView(view).then(({ visitedViews }) => {
     //关闭当前路由则跳转前一个路由
     if (isActive(view)) {
-      toNextView(visitedViews, viewIndex-1);
+      toNextView(visitedViews, viewIndex - 1);
     }
   });
 };
@@ -325,10 +324,10 @@ onMounted(() => {
     color: #808695;
     border-radius: 3px;
     cursor: pointer;
-    box-shadow: 0px 0px 10px 0px rgba(0, 21, 41, 0.04);
+    box-shadow: 0 0 5px 0 rgba(210,215,225,.36);
   }
   &-main {
-    background: #f5f7f9;
+    background: #f5f5f5;
     flex: 1;
     display: flex;
     align-items: center;
@@ -353,7 +352,7 @@ onMounted(() => {
     color: #808695;
     border-radius: 3px;
     padding: 0px 12px 0px 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 21, 41, 0.04);
+    box-shadow: 0 0 5px 0 rgba(210,215,225,.36);
     margin-right: 6px;
     flex-shrink: 0;
     cursor: pointer;

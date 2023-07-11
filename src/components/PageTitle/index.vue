@@ -27,7 +27,10 @@ const props = defineProps({
 <style scoped lang="less">
 .page-title-box{
   background-color: #fff;
+  box-shadow: 0 0 5px 0 rgba(210,215,225,.36);
   border-radius: 4px;
+  flex-direction: column-reverse;
+  justify-content: space-between;
   padding: 15px;
   &-title{
     color: #17233d;
