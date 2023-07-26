@@ -101,10 +101,6 @@ const sidebarRoutes = computed(() => {
 const visitedViews = computed(() => {
   return tabsViewStore.visitedViews;
 });
-//需要缓存的路由
-const cachedViews = computed(() => {
-  return tabsViewStore.cachedViews;
-});
 //是否显示图标
 const tabsViewIcon = computed(() => {
   return settingsStore.tabsViewIcon;
@@ -191,18 +187,6 @@ const handleTabRemove = (name) => {
     if (isActive(view)) {
       toNextView(visitedViews, viewIndex - 1);
     }
-  });
-};
-//点击tab
-const handleTabClick = (name) => {
-  const view = visitedViews.value.find((item) => item.fullPath === name);
-  const { fullPath } = view;
-  tabsViewStore.delCachedView(view).then(() => {
-    nextTick(() => {
-      router.replace({
-        path: "/redirect" + fullPath,
-      });
-    });
   });
 };
 //刷新当前路由页面
@@ -366,9 +350,9 @@ onMounted(() => {
     }
   }
   .i-layout-tabs-item-active {
-    color: #1e71ff;
+    color: #2d8cf0;
     &:hover {
-      color: #1e71ff;
+      color: #2d8cf0;
     }
   }
 }

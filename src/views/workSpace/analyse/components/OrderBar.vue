@@ -101,7 +101,7 @@ const initOrderChart = () => {
               },
               {
                 offset: 1,
-                color: "#1e71ff",
+                color: "#2d8cf0",
               },
             ]),
           },

@@ -2,6 +2,7 @@ import { defineStore } from 'pinia'
 import { login, logout, getUserInfo, getUserAuthority } from '@/api/modules/login'
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import usePermissionStore from "@/store/modules/permission";
+import useTabsViewStore from "@/store/modules/tabsView";
 const useUserStore = defineStore(
     'user',
     {

@@ -133,7 +133,7 @@
         <div class="page-card">
           <div class="card-title">
             <div class="card-title-left">
-              <ColorIcon :size="30" icon="ios-stats" color="#1e71ff" />
+              <ColorIcon :size="30" icon="ios-stats" color="#2d8cf0" />
               <span>访问量统计</span>
             </div>
             <div class="card-title-right">
@@ -154,7 +154,7 @@
         <div class="page-card">
           <div class="card-title">
             <div class="card-title-left">
-              <ColorIcon :size="30" icon="ios-people" color="#1e71ff" />
+              <ColorIcon :size="30" icon="ios-people" color="#2d8cf0" />
               <span>访问量排行</span>
             </div>
           </div>
@@ -352,7 +352,7 @@ const initVisitChart = () => {
                 },
                 {
                   offset: 1,
-                  color: "#1e71ff", // 100% 处的颜色
+                  color: "#2d8cf0", // 100% 处的颜色
                 },
               ],
               false
@@ -484,7 +484,7 @@ onMounted(() => {
         height: 30px;
         border-radius: 50%;
         background-color: rgba(45, 140, 240, 0.1);
-        color: #1e71ff;
+        color: #2d8cf0;
         font-size: 15px;
         text-align: center;
         line-height: 30px;
