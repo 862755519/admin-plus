@@ -19,6 +19,7 @@
     "nprogress": "^0.2.0",
     "path-browserify": "^1.0.1",
     "path-to-regexp": "^6.2.1",
+    "picocolors": "^1.0.0",
     "pinia": "^2.0.32",
     "pinia-plugin-persistedstate": "^3.1.0",
     "save": "^2.9.0",
