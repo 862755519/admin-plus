@@ -179,6 +179,12 @@ const handleLogin = () => {
     }
   });
 };
+const formData = reactive({
+  name: "",
+  sxe: 0,
+  age: 18,
+  address: ""
+})
 const getCookie = () => {
   const username = Cookies.get("username");
   const password = Cookies.get("password");
