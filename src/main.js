@@ -15,6 +15,8 @@ import SvgIcon from "@/components/SvgIcon/index.vue";
 // import global index.less
 import "@/styles/index.less";
 
+import "@/styles/vxe-table.scss";
+
 import "./permission";
 
 // 引入全局指令
