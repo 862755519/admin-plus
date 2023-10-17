@@ -47,7 +47,7 @@
             </template>
             <template v-if="tabIndex == 3">
               <div class="no-content">
-                <img src="@/assets/images/no_message.png" alt="" srcset="" />
+                <img src="@/assets/images/nodata.png" alt="" srcset="" />
               </div>
             </template>
           </div>
