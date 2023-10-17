@@ -79,7 +79,7 @@ const logoClasses = computed(() => {
       width: 40px;
       height: 40px;
       vertical-align: middle;
-      margin-right: 10px !important;
+      margin-right: 15px !important;
     }
 
     .sider-logo-title {

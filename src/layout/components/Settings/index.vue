@@ -16,6 +16,7 @@
           class="i-layout-navbar-settings-item-radio"
           :class="{ on: sideTheme === 'dark' }"
           @click="handleChangeSetting('sideTheme', 'dark')"
+          style="margin-right: 30px;"
         >
           <SvgIcon type="dark" :size="52" color="red" />
         </div>
@@ -207,12 +208,12 @@ const handleChangeSetting = (key, value) => {
   &-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 12px 0;
     // radio
     &-radio {
       display: inline-block;
       position: relative;
-      margin-right: 16px;
       cursor: pointer;
       &::after {
         background: transparent;
