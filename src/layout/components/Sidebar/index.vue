@@ -126,7 +126,7 @@ watch(
 );
 //监听面包屑配置变化
 watch(
-  () => isCollapsed,
+  () => isCollapsed.value,
   () => {
     initOpenNames();
     handleUpdateMenuState();
