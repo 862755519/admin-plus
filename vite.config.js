@@ -5,7 +5,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import vitePluginStart from './src/plugin/vitePluginStart.js'
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/admin-plus",
+  base: "/",
   plugins: [
     vue(),
     vitePluginStart(),
