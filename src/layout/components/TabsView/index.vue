@@ -278,7 +278,28 @@ const arrowForward = () => {
 //监听路由变化
 watch(
   () => router.currentRoute.value,
-  () => {
+  async () => {
+    await nextTick();
+    // 确保DOM已更新
+    const activeTab = tagMainBox.value.querySelector(
+      ".i-layout-tabs-item-active"
+    );
+    if (!activeTab) {
+      return;
+    }
+    // 激活的tab项相对于tagMainBox开始的位置
+    const tabLeft = activeTab.offsetLeft - tagMainBox.value.offsetLeft;
+    const tabWidth = activeTab.offsetWidth;
+    const containerWidth = tagMain.value.offsetWidth;
+    const halfContainerWidth = containerWidth / 2;
+    let scrollValue = tabLeft + tabWidth / 2 - halfContainerWidth;
+
+    // 限制scrollValue的值，防止过度滚动
+    scrollValue = Math.max(scrollValue, 0); // 防止向左过度滚动
+    const maxScrollValue = tagMainBox.value.scrollWidth - containerWidth; // 最大滚动距离
+    scrollValue = Math.min(scrollValue, maxScrollValue); // 防止向右过度滚动
+
+    tabScroll.value = `-${scrollValue}px`; // 更新滚动距离
     addTabs();
   }
 );
@@ -308,7 +329,7 @@ onMounted(() => {
     color: #808695;
     border-radius: 3px;
     cursor: pointer;
-    box-shadow: 0 0 5px 0 rgba(210,215,225,.36);
+    box-shadow: 0 0 5px 0 rgba(210, 215, 225, 0.36);
   }
   &-main {
     background: #f5f5f5;
@@ -336,7 +357,7 @@ onMounted(() => {
     color: #808695;
     border-radius: 3px;
     padding: 0px 12px 0px 10px;
-    box-shadow: 0 0 5px 0 rgba(210,215,225,.36);
+    box-shadow: 0 0 5px 0 rgba(210, 215, 225, 0.36);
     margin-right: 6px;
     flex-shrink: 0;
     cursor: pointer;
