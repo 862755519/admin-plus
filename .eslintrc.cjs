@@ -10,5 +10,13 @@ module.exports = {
   },
   rules: {
     'vue/no-v-for-template-key': 'off'
-  }
+  },
+  overrides: [
+    {
+      files: ['index.vue'],
+      rules: {
+        "vue/multi-word-component-names": "off",
+      }
+    }
+  ]
 }
