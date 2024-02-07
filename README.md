@@ -6,15 +6,15 @@
     Admin Plus
   </h1>
 
-  <h4 align="center">
+  <div align="center" style="font-weight: bold; font-size: 18px">
      开 箱 即 用 的 企 业 级 开 发 平 台 前 端 框 架
-  </h4> 
+  </div> 
 
   [预览](http://myproject-template.gitee.io/admin-plus)   
   
-  <h5 align="center">
+  <div align="center">
      【Admin角色】账号：admin，密码：123456【Test角色】账号：test，密码123456
-  </h5> 
+  </div> 
 
 </div>
 
