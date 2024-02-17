@@ -23,7 +23,7 @@ export default defineConfig({
     open: true,
     proxy: {
       '/dev-api': {
-        target: 'https://www.fastmock.site/mock/991ebcd32bc5ad676f36ab25e8af2491/api',
+        target: 'https://maoxiangdong.usemock.com', 
         changeOrigin: true,
         rewrite: (p) => p.replace(/^\/dev-api/, '')
       }

@@ -68,7 +68,6 @@ const logoClasses = computed(() => {
   white-space: nowrap;
   display: block;
   transition: all 0.2s ease-in-out;
-
   &-link {
     height: 100%;
     width: 100%;
@@ -101,6 +100,7 @@ const logoClasses = computed(() => {
   // dark和light主题色
   &-dark {
     background: @base-dark-bg;
+    border-bottom: 1px solid #363a52;
     & .sider-logo-title {
       color: #dcdee2 !important;
     }
@@ -108,6 +108,7 @@ const logoClasses = computed(() => {
   &-light {
     transition: all 0.2s ease-in-out;
     background: #fff;
+    border-bottom: 1px solid #e8eaec;
     & .sider-log-title {
       color: #515a6e !important;
     }

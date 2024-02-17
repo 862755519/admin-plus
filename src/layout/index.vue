@@ -25,7 +25,7 @@
       </Header>
       <Content class="i-layout-content" :class="contentClasses">
         <AppMain />
-        <Footer />
+        <!-- <Footer /> -->
       </Content>
     </Layout>
 
