@@ -17,7 +17,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: "#2d8cf0",
+    default: "#165DFF",
   }
 });
 // 图标容器样式

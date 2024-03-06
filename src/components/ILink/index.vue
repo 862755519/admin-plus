@@ -36,7 +36,7 @@ const props = defineProps({
 // 定义颜色集合
 @colors: {
   default: #515a6e;
-  primary: #2d8cf0;
+  primary: #165DFF;
   success: #19be6b;
   warning: #ff9900;
   error: #ed4014;

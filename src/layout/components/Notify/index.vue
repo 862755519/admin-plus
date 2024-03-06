@@ -103,7 +103,7 @@ const noticeList = ref([
   {
     id: 1,
     icon: "md-snow",
-    color: "#2d8cf0",
+    color: "#165DFF",
     title: "全局水印",
     time: "2023-06-10 14:23",
   },
@@ -220,11 +220,11 @@ const noticeList = ref([
     font-size: 15px;
     position: relative;
     &:hover {
-      color: #2d8cf0;
+      color: #165DFF;
     }
   }
   .i-notify-tabs-item-active {
-    color: #2d8cf0;
+    color: #165DFF;
     font-size: 15px;
   }
   .i-notify-tabs-item-active::after {
@@ -234,7 +234,7 @@ const noticeList = ref([
     height: 2px;
     width: 46%;
     left: 27%;
-    background-color: #2d8cf0;
+    background-color: #165DFF;
   }
   .i-notify-content {
     height: 300px;
@@ -265,7 +265,7 @@ const noticeList = ref([
     font-size: 14px;
     border-top: 1px solid #e8eaec;
     &:hover {
-      color: #2d8cf0;
+      color: #165DFF;
     }
   }
 }

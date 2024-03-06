@@ -169,8 +169,8 @@ watch(
   }
 
   .check-item-active {
-    color: #2d8cf0;
-    border: 1px solid #2d8cf0;
+    color: #165DFF;
+    border: 1px solid #165DFF;
     // background-color: rgba(45, 140, 240, 0.04)
   }
 }

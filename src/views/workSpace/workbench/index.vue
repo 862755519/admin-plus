@@ -45,7 +45,7 @@
         <div class="nav-box">
           <div class="card-title">
             <div class="card-title-left">
-              <ColorIcon :size="30" icon="ios-paper-plane" color="#2d8cf0" />
+              <ColorIcon :size="30" icon="ios-paper-plane" color="#165DFF" />
               <span>网站导航</span>
             </div>
           </div>

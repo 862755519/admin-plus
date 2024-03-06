@@ -5,7 +5,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import vitePluginStart from './src/plugin/vitePluginStart.js'
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/admin-plus",
+  base: "/",
   plugins: [
     vue(),
     vitePluginStart(),
@@ -18,12 +18,12 @@ export default defineConfig({
   ],
   // 代理服务
   server: {
-    port: 80,
+    port: 9527,
     host: true,
     open: true,
     proxy: {
       '/dev-api': {
-        target: 'https://www.fastmock.site/mock/991ebcd32bc5ad676f36ab25e8af2491/api',
+        target: 'https://dev.usemock.com/65e7bf2548882231b5641a15',
         changeOrigin: true,
         rewrite: (p) => p.replace(/^\/dev-api/, '')
       }
