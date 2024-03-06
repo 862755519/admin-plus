@@ -305,9 +305,7 @@ const initVisitChart = () => {
         axisLabel: {
           margin: 10,
           color: "#808695",
-          textStyle: {
-            fontSize: 14,
-          },
+          fontSize: 14,
         },
       },
     ],
@@ -339,25 +337,23 @@ const initVisitChart = () => {
         data: yData,
         barWidth: "35%",
         itemStyle: {
-          normal: {
-            color: new echarts.graphic.LinearGradient(
-              0,
-              0,
-              0,
-              1,
-              [
-                {
-                  offset: 0,
-                  color: "#2db7f5", // 0% 处的颜色
-                },
-                {
-                  offset: 1,
-                  color: "#165DFF", // 100% 处的颜色
-                },
-              ],
-              false
-            ),
-          },
+          color: new echarts.graphic.LinearGradient(
+            0,
+            0,
+            0,
+            1,
+            [
+              {
+                offset: 0,
+                color: "#165DFF", // 0% 处的颜色 
+              },
+              {
+                offset: 1,
+                color: "#165DFF", // 100% 处的颜色
+              },
+            ],
+            false
+          ),
         },
       },
     ],

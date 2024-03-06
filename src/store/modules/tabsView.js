@@ -7,7 +7,10 @@ const useTabsViewStore = defineStore(
             visitedViews: [], // tab中打开的路由
             cachedViews: [] // 需要缓存的路由，只会在开启tabsView时候才会记录
         }),
-        persist: false,
+        persist: {
+            storage: sessionStorage,
+            debug: true
+        },
         actions: {
             // 添加view （包含huncunde）
             addView(view) {
