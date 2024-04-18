@@ -151,6 +151,7 @@ const initTabs = () => {
 };
 // 添加新的tab
 const addTabs = () => {
+  console.log("添加表情");
   const { name } = route;
   if (name) {
     tabsViewStore.addView(route);
@@ -278,29 +279,26 @@ const arrowForward = () => {
 //监听路由变化
 watch(
   () => router.currentRoute.value,
-  async () => {
-    await nextTick();
-    // 确保DOM已更新
-    const activeTab = tagMainBox.value.querySelector(
-      ".i-layout-tabs-item-active"
-    );
-    if (!activeTab) {
-      return;
-    }
-    // 激活的tab项相对于tagMainBox开始的位置
-    const tabLeft = activeTab.offsetLeft - tagMainBox.value.offsetLeft;
-    const tabWidth = activeTab.offsetWidth;
-    const containerWidth = tagMain.value.offsetWidth;
-    const halfContainerWidth = containerWidth / 2;
-    let scrollValue = tabLeft + tabWidth / 2 - halfContainerWidth;
-
-    // 限制scrollValue的值，防止过度滚动
-    scrollValue = Math.max(scrollValue, 0); // 防止向左过度滚动
-    const maxScrollValue = tagMainBox.value.scrollWidth - containerWidth; // 最大滚动距离
-    scrollValue = Math.min(scrollValue, maxScrollValue); // 防止向右过度滚动
-
-    tabScroll.value = `-${scrollValue}px`; // 更新滚动距离
+  () => {
     addTabs();
+    nextTick(() => {
+      // 确保DOM已更新
+      const activeTab = tagMainBox.value.querySelector(
+        ".i-layout-tabs-item-active"
+      );
+      // 激活的tab项相对于tagMainBox开始的位置
+      const tabLeft = activeTab.offsetLeft - tagMainBox.value.offsetLeft;
+      const tabWidth = activeTab.offsetWidth;
+      const containerWidth = tagMain.value.offsetWidth;
+      const halfContainerWidth = containerWidth / 2;
+      let scrollValue = tabLeft + tabWidth / 2 - halfContainerWidth;
+
+      // 限制scrollValue的值，防止过度滚动
+      scrollValue = Math.max(scrollValue, 0); // 防止向左过度滚动
+      const maxScrollValue = tagMainBox.value.scrollWidth - containerWidth; // 最大滚动距离
+      scrollValue = Math.min(scrollValue, maxScrollValue); // 防止向右过度滚动
+      tabScroll.value = `-${scrollValue}px`; // 更新滚动距离
+    });
   }
 );
 //onMounted
@@ -371,9 +369,9 @@ onMounted(() => {
     }
   }
   .i-layout-tabs-item-active {
-    color: #165DFF;
+    color: #165dff;
     &:hover {
-      color: #165DFF;
+      color: #165dff;
     }
   }
 }
