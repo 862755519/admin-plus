@@ -33,7 +33,7 @@
       </MenuItem>
     </template>
     <!-- children包含多个元素，继续遍历子元素 -->
-    <Submenu v-else ref="subMenu" :name="resolvePath(item.path)">
+    <Submenu v-else :name="resolvePath(item.path)">
       <template #title>
         <side-menu-title
           v-if="item.meta"
