@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Admin Plus </title>
+  <script type="module" crossorigin src="/admin-plus/assets/index-eb087fb8.js"></script>
+  <link rel="stylesheet" href="/admin-plus/assets/index-a421ef33.css">
+</head>
+
+<body>
+  <div id="app">
+    <!-- 加载动画 -->
+    <div class="load-container">
+      <div class="load-point"></div>
+      <div class="load-point"></div>
+      <div class="load-point"></div>
+      <div class="load-point"></div>
+      <div class="load-point"></div>
+    </div>
+  </div>
+  
+</body>
+<style>
+  html,
+  body,
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background: #f5f5f5;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+  }
+
+  .load-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    display: flex;
+  }
+
+  input:-webkit-autofill,
+  textarea:-webkit-autofill,
+  select:-webkit-autofill {
+    -webkit-text-fill-color: #606266 !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    background-color: transparent;
+    background-image: none;
+    transition: background-color 50000s ease-in-out 0s;
+  }
+
+  input {
+    background-color: transparent;
+  }
+
+
+  .load-container .load-point {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    /* 实现圆形 */
+    background: #fff;
+    margin: 1em;
+    user-select: none;
+    position: relative;
+  }
+
+  .load-container .load-point::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    /* 从父元素继承背景颜色 */
+    border-radius: inherit;
+    /* 从父元素继承圆角 */
+    animation: wave 2.2s ease-out infinite;
+    /* 对before元素定义动画，完成时间2s, 采用ease-out过渡，重复循环 */
+  }
+
+  @keyframes wave {
+
+    50%,
+    70% {
+      transform: scale(2.5);
+    }
+
+    80%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  /* 设置背景颜色,自行选取五个颜色即可 */
+  .load-container .load-point:nth-child(1) {
+    background: #165DFF;
+  }
+
+  .load-container .load-point:nth-child(2) {
+    background: #19be6b;
+  }
+
+  .load-container .load-point:nth-child(3) {
+    background: #ff9900;
+  }
+
+  .load-container .load-point:nth-child(4) {
+    background: #ed4014;
+  }
+
+  .load-container .load-point:nth-child(5) {
+    background: #0808a3;
+  }
+
+  /*
+  * 现在动画都是同时出现的，而我们需要的是一种逐渐出现的效果
+  * 所以需要对每个元素的动画加一个延迟
+  * 最后一个与第一个之间的间隔太短
+  * 所以需要把整体的动画时间延长一下
+  */
+  .load-container .load-point:nth-child(1)::before {
+    animation-delay: 0s;
+    /* 第一个不需要延迟 */
+  }
+
+  .load-container .load-point:nth-child(2)::before {
+    animation-delay: 0.2s;
+    /* 依次延迟0.2s */
+  }
+
+  .load-container .load-point:nth-child(3)::before {
+    animation-delay: 0.4s;
+  }
+
+  .load-container .load-point:nth-child(4)::before {
+    animation-delay: 0.6s;
+  }
+
+  .load-container .load-point:nth-child(5)::before {
+    animation-delay: 0.8s;
+  }
+</style>
+
+</html>
