@@ -1,5 +1,5 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Layout from '@/Layout/index.vue';
+import { createRouter, createWebHashHistory } from "vue-router";
+import Layout from "@/Layout/index.vue";
 export const constantRoutes = [
   /**
  * Note: 路由配置项
@@ -31,18 +31,18 @@ export const constantRoutes = [
     children: [
       {
         path: "/redirect/:path(.*)",
-        component: () => import('@/views/redirect.vue')
-      }
-    ]
+        component: () => import("@/views/redirect.vue"),
+      },
+    ],
   },
   // 登录
   {
     path: "/login",
-    component: () => import('@/views/login/index.vue'),
+    component: () => import("@/views/login/index.vue"),
     meta: {
       title: "登录",
     },
-    hidden: true
+    hidden: true,
   },
 
   // 错误页面
@@ -52,7 +52,7 @@ export const constantRoutes = [
     meta: {
       title: "403",
     },
-    hidden: true
+    hidden: true,
   },
   {
     path: "/500",
@@ -60,28 +60,58 @@ export const constantRoutes = [
     meta: {
       title: "500",
     },
-    hidden: true
+    hidden: true,
   },
-
+  {
+    path: "/dynamic",
+    name: "dynamic",
+    component: Layout,
+    redirect: "noRedirect",
+    alwaysShow: true,
+    meta: {
+      title: "动态配置组件",
+      icon: "md-volume-up",
+    },
+    children: [
+      {
+        path: "/dynamic/table",
+        name: "dynamic-table",
+        component: () => import("@/views/dynamic/table/index.vue"),
+        meta: {
+          title: "动态表格页面",
+          icon: "",
+        },
+      },
+      {
+        path: "/dynamic/form",
+        name: "dynamic-form",
+        component: () => import("@/views/dynamic/form/index.vue"),
+        meta: {
+          title: "动态表单页面",
+          icon: "",
+        },
+      },
+    ],
+  },
   // 默认路由跳转到首页
   {
     path: "/",
     redirect: "/workSpace/control",
-    component: Layout
+    component: Layout,
   },
   //找不到页面跳转404
   {
     path: "/:pathMatch(.*)*",
-    component: () => import('@/views/error/404.vue'),
+    component: () => import("@/views/error/404.vue"),
     meta: {
       title: "404",
     },
-    hidden: true
-  }
+    hidden: true,
+  },
 ];
 //创建路由实例
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
-  routes: constantRoutes
-})
-export default router
+  routes: constantRoutes,
+});
+export default router;
