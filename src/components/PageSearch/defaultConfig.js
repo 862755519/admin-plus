@@ -119,9 +119,9 @@ export const defaultConfig = {
             { id: 3, label: "深圳" },
             { id: 3, label: "杭州" },
           ];
-          await getRemoteData(cityData);
+          return await getRemoteData(cityData);
         },
-        dataValue: "value", // 数据源的 value 字段 默认为 value
+        dataValue: "id", // 数据源的 value 字段 默认为 value
         dataLabel: "label", // 数据源的 label 字段 默认为 label
       },
     },

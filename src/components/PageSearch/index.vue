@@ -8,50 +8,28 @@
   <div class="page-search-container">
     <Form ref="formRef" :model="formModel" v-bind="formProps">
       <Row :gutter="15">
-        <Col
+        <FormSchemasItem
           v-for="(item, index) in formSchemasProps"
           :key="index"
-          v-bind="item.colProps"
-        >
-          <FormItem v-bind="item.formItemProps">
-            <component
-              :is="item.component"
-              v-model="formModel[item.formItemProps.prop]"
-              v-bind="item.componentProps"
-              style="width: 100%"
-            >
-              <!-- 选择器渲染选项 -->
-              <!-- <Option
-                v-for="item in selectOptions"
-                :value="item[optionValue]"
-                :key="item[optionValue]"
-                >{{ item[optionLabel] }}</Option
-              > -->
-            </component>
+          :formModel="formModel"
+          :formSchemasItemProps="item"
+        ></FormSchemasItem>
+        <Col span="4">
+          <FormItem :label-width="0" style="margin-bottom: 15px">
+            <Button type="primary" @click="handleSearch">查询</Button>
+            <Button style="margin-left: 8px" @click="handleReset">重置</Button>
           </FormItem>
         </Col>
-        <Col span="6">
-          <div>col-6</div>
-        </Col>
-        <Col span="6">
-          <div>col-6</div>
-        </Col>
-        <Col span="6">
-          <div>col-6</div>
-        </Col>
       </Row>
-
-      <FormItem>
-        <Button type="primary">Submit</Button>
-        <Button style="margin-left: 8px">Reset</Button>
-      </FormItem>
     </Form>
   </div>
 </template>
 
 <script setup>
-import { onMounted, reactive, ref } from "vue";
+import { onMounted, ref } from "vue";
 import { defaultConfig } from "./defaultConfig.js";
+import FormSchemasItem from "./FormSchemasItem.vue";
+import { Message } from "view-ui-plus";
 const props = defineProps({
   // 父级传入的搜索表单配置属性
   pageSearchOptions: {
@@ -68,6 +46,12 @@ const formModel = ref({});
 const formProps = ref({});
 // 表单域组件配置
 const formSchemasProps = ref([]);
+// 派生数据
+const emits = defineEmits(["onSearch", "onReset"]);
+// 判断一个元素是否为空
+const isExist = (value) => {
+  return typeof value !== "undefined" && value !== null;
+};
 // 初始化表单配置
 const initPageSearchOptions = () => {
   formModel.value =
@@ -81,21 +65,52 @@ const initPageSearchOptions = () => {
     defaultConfig?.formSchemasProps ||
     [];
 };
+// 处理异步数据
+const handleAsyncData = () => {
+  if (isExist(formSchemasProps.value)) {
+    formSchemasProps.value.forEach(async (item) => {
+      if (
+        isExist(item.optionsProps?.data) &&
+        typeof item.optionsProps?.data === "function"
+      ) {
+        item.optionsProps.data = await item.optionsProps.data();
+      }
+    });
+  }
+};
+// 查询
+const handleSearch = () => {
+  formRef.value.validate((valid) => {
+    if (valid) {
+      emits("onSearch", formModel.value);
+    } else {
+      Message.error("表单验证失败");
+    }
+  });
+};
+// 重置
+const handleReset = () => {
+  formRef.value.resetFields();
+  emits("onReset", formModel.value);
+};
 // onMounted
 onMounted(() => {
   initPageSearchOptions();
-  console.log(defaultConfig);
-  console.log(formModel.value);
-  console.log(formProps.value);
-  console.log(formSchemasProps.value);
+  handleAsyncData();
+});
+// 暴露方法
+defineExpose({
+  formRef,
+  formModel,
+  formProps,
+  formSchemasProps,
 });
 </script>
 
 <style scoped lang="less">
 .page-search-container {
-  border: 1px solid red;
   background-color: #ffffff;
-  padding: 15px;
+  padding: 15px 15px 1px 15px;
   border-radius: 4px;
 }
 </style>
